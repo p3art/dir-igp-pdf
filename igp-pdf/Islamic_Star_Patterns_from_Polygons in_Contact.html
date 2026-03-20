@@ -1,0 +1,710 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Islamic_Star_Patterns_from_Polygons in_Contact</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2daac165-e88d-81d3-9b2c-f2895e6ff354" class="page sans"><header><h1 class="page-title" dir="auto">Islamic_Star_Patterns_from_Polygons in_Contact</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="325ac165-e88d-80a5-926b-cafab8aca563" class="">by Craig S.Kaplan 短論文</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f8-863d-c851bfda0653" class=""><strong>Islamic Star Patterns from Polygons in Contact</strong> Craig S. Kaplan</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d6-8283-c8a272363a91" class="">School of Computer Science</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8178-bf16-dc4b21b167e8" class="">University of Waterloo</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8117-a6d7-debd2e7f5ea6" class=""><em>Abstract</em> <strong>2</strong> <strong>Previous work</strong></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8154-9e30-f2cda445806e" class="">We present a simple method for rendering Islamic star patterns based on Hankin’s “polygons-in-contact” tech-nique. The method builds star patterns from a tiling of the plane and a small number of intuitive parameters. We show how this method can be adapted to construct Islamic designs reminiscent of Huff’s parquet deforma-tions. Finally, we introduce a geometric transformation on tilings that expands the range of patterns accessible using our method. This transformation simplifies con-struction techniques given in previous work, and clari-fies previously unexplained relationships between certain classes of star patterns.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8142-a1ce-d5eb7e8d41ff" class=""><em>Key words: Islamic star patterns, Islamic art, Tilings,</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819a-b4e1-c61f76a50ccc" class=""><em>patterns</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8192-ae2d-e274a233f10e" class=""><strong>1 Introduction</strong></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8160-a51b-d649491b6c51" class="">Islamic star patterns represent one of the world’s great ornamental design traditions [2, 6, 7]. Star patterns are a harmonious fusion of mathematics, art, and spirituality, and expressions of symmetry, balance, and ingenuity.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bc-a761-e23bb119c86f" class="">Star patterns also embody an enduring mathematical mystery. Most of the original design techniques are lost to history, and we are forced to probe the minds of an-cient artisans and mathematicians via the patterns they left behind. Many scholars and hobbyists have discov-ered or rediscovered techniques that produce Islamic pat-terns [1, 9, 11, 20].</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-815d-9cbf-dff2e0ef1efc" class="">This paper presents a simple technique based on Han-kin’s “polygons-in-contact” method [12]. Given a tiling of the plane, Hankin’s method produces an Islamic star pattern based on that tiling (Section 3). By modifying the construction slightly, we are able to construct designs in the style of Huff’s parquet deformations [16, Chap-ter 10] (Section 3.1). Finally, we show how an operation on tilings called the “rosette transform” can expand the range of patterns available using Hankin’s method (Sec-tion 4). The rosette transform demonstrates the power of Hankin’s method, and formalizes previously unexplained relationships between certain classes of star patterns.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8194-b175-f3ebc8f2d908" class="">Our approach follows most directly from recent work by Kaplan and Salesin [18]. They construct designs by fill-ing tiles in a tiling with fragments of star patterns. For tiles that are regular polygons, they give a parameterized space of “design elements” drawn from historical exam-ples. They then complete the pattern by filling irregular polygons using an “inference algorithm”. Because their construction is independent of Euclid’s parallel axiom, they can draw star patterns seamlessly in Euclidean and non-Euclidean geometry. We simplify their approach by eliminating design elements and applying an inference al-gorithm uniformly to all tiles. We can still produce com-plex elements such as rosettes by moving more informa-tion into the underlying tiling. There is a large overlap in the designs produced by the two systems – given suitable tilings, Najm could reproduce all the star patterns pre-sented here. But this paper offers insights into the tilings that underlie star patterns, and provides a technique that is simpler and easier to control.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811b-99ab-df0f7e0294fd" class="">Jay Bonner is an architect who has studied Islamic star patterns extensively. In an unpublished manuscript [3], Bonner gives a systematic presentation of star patterns developed over a vast space of tilings (which he calls“polygonal sub-grids”). Some of the techniques from the book also appear in a recent paper [4]. Bonner’s work is intended as a resource for designers, and not specification for software writers. He draws patterns manually using a CAD tool. This paper is in part an attempt to formalize the algorithms that underlie his technique, and to express those algorithms in software for architects, designers, and artists.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81db-93b1-c4b2e970bb14" class=""><strong>3</strong> <strong>The polygons-in-contact method</strong></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81dd-aa1a-e78d1623ca97" class="">A tiling-based approach to Islamic star patterns seems first to have been articulated in the west by E.H. Han-kin in the early part of the twentieth century. In a series of papers [12, 13, 14, 15], he explains his discoveries and gives many examples of how the technique can be used. Hankin’s description of his technique provides an excel-lent starting point for an algorithmic approach (and helps drive contemporary work by Bonner).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8196-bf9f-fc9c6995bef7" class="">In making such patterns, it is first necessary to cover the surface to be decorated with a net-work consisting of polygons in contact. Then through the centre of each side of each poly-gon two lines are drawn. These lines cross each other like a letter X and are continued till they meet other lines of similar origin. This com-pletes the pattern [12, Page 4].</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813e-b21b-e6b07ca5c223" class="">Since that time, scholars such as Lee [19] and Critchlow [8] have referred to Hankin’s “polygons-in-contact” technique. This method immediately suggests an algorithm for turning a tiling into an Islamic star pat-tern. Given a tiling of the plane by polygons (Hankin’s“network”), we identify the midpoints of the edges of the tiling as “contact points” where the design will be born. We place a small X at every contact point and “grow” the arms of the X until they encounter lines growing from other contact points. There is one obvious degree of free-dom in this process: the angle formed by the arms of the X with the edge from which they emanate. We call this angle the <em>contact angle</em> of the pattern. An illustration is given in Figure 1(a).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a4-aa82-fa4003133a7e" class="">We can regard this process as growing a small arrange-ment of lines for each unique tile shape in a tiling. We grow a pair of rays, forming half an X, inward from the midpoints of the tile’s edges. We call the arrangement of lines associated with a single tile its <em>motif</em>. An imple-mentation of this construction technique should accept a tiling and a contact angle as input, build a motif for each tile shape, and assemble the motifs into a pattern that can then be decorated.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8197-afba-e4efc26585d7" class="">Given an <em>n</em>-sided polygonal tile and a contact angle, we must develop a motif from the 2<em>n</em> rays entering that tile through its edge midpoints. A successful motif will partition the rays into pairs, where each matched pair rep-resents a distinct path through the tile. The best possible motif will be the pairing of rays that optimizes a chosen aesthetic goal. We choose the simple goal of minimiz-ing the sum of the lengths of all of the line segments in the motif. This goal reflects the sense of economy and inevitability in Islamic design, and is justified through many historical examples.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a1-8b7f-c29e82acac02" class="">Ideally, then, we would iterate over all possible pair-ings of rays, and find the one that minimizes total length. Unfortunately, this algorithm is not practical – there are (<em>n/</em>2)!2<em>n</em> ways to partition 2<em>n</em> rays into pairs, or over half a billion possibilities for a region with 10 sides.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8160-b7ba-ee5d78b1dd04" class="">Instead we use a greedy approach, based on a sim-plified version of Kaplan and Salesin’s <em>inference algo-rithm</em> [18]. We consider all possible pairs of rays. If two rays<em>−−→AB</em> and<em>−−→CD</em> intersect at a point <em>P</em>, we store that pair in a collection together with a cost equal to the sum of the</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81d1-9da3-d10e56b331ff" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image1.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image1.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c8-b384-fa6d3831567c" class="">(a) (b)</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8189-a54c-ee9638bdf973" class=""><em>Figure 1: In the first step of Hankin’s method, a pair of</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8145-92e7-fb2b4a3037b7" class=""><em>rays is associated with every contact position on every</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fc-b548-c101d829988a" class=""><em>tile. In (a), a single contact position gets its two rays,</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811e-aee9-e5495383ba50" class=""><em>each of which forms the contact angle θ with the edge.</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81cc-b7af-c8270d134814" class=""><em>In (b), we separate the ray origins by distance δ.</em></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81d7-ad2c-e239ccf9aff4" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image2.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image2.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8191-8234-e60636bdba75" class=""><em>Figure 2: A demonstration of Hankin’s method. On the</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8190-a359-db230f35ee53" class=""><em>left, contact points sprout an X-shaped arrangement of</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f3-ae29-e08aa1d34511" class=""><em>rays that grow until they meet other rays. When the orig-</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8101-9f13-e9b064348052" class=""><em>inal tiling is removed, the result is the pattern on the right.</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8147-a483-e9c617602953" class="">lengths <em>AP</em> and <em>PD</em>. If the rays are collinear and point towards each other, we store the pair together with the length <em>AD</em>. We can then sort the collection by cost and walk over it in order. For each pair of rays, we incorpo-rate that pair’s path into the motif provided neither of the rays has yet been used.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817b-8d14-d251e10f524f" class="">In practice, this algorithm performs well on a wide variety of polygons. It certainly performs perfectly on regular polygons, where it constructs star-shaped motifs. It sometimes produces motifs with unmatched rays, and sometimes paths that venture too far from the underlying tile. In the cases where it fails, it usually does so not be-cause it is greedy, but because the pairing technique is not well-suited to the tile shape in question. In some cases, the inferred motif can be improved by moving the contact points away from the edge midpoints. This adjustment is discussed in greater detail in Section 4.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813b-ac38-f10be1448efd" class="">Figure 2 illustrates the process of growing rays from contact positions. Figure 3 shows some typical designs that can result from using our implementation of Han-kin’s method.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f8-b371-c75fb4e3243d" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image3.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image3.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81cd-9a63-ed762485e30c" class="">(4<em>.</em>82) <em>θ</em> = 22<em>.</em>5<em>◦</em> <em>θ</em> = 45<em>◦</em> <em>θ</em> = 67<em>.</em>5<em>◦</em></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81d4-9af7-f823e7d5e6c4" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image4.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image4.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817c-8b4c-f74a3cbe74a2" class="">(4<em>.</em>6<em>.</em>12)<em>θ</em> = 45<em>◦</em> <em>θ</em> = 60<em>◦</em> <em>θ</em> = 75<em>◦</em></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8189-af8c-cd252b0554c2" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image5.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image5.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8146-a18a-e35e751d1732" class="">(3<em>.</em>4<em>.</em>3<em>.</em>12; 3<em>.</em>122) <em>θ</em> = 35<em>◦</em> <em>θ</em> = 60<em>◦</em> <em>θ</em> = 75<em>◦</em></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8100-a342-caba41e23db8" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image6.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image6.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813d-9812-f93d80007da2" class="">Altair<em>θ</em> = 30<em>◦</em> <em>θ</em> = 45<em>◦</em> <em>θ</em> = 72<em>.</em>5<em>◦</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817d-9827-c6b8ec1a3452" class=""><em>Figure 3: Examples of star patterns constructed using Hankin’s method. Each row shows a tiling together with three</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8107-a723-c1a288ed87ab" class=""><em>designs that can be derived from it using three different contact angles. The bottom row features an amusing tiling by</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817a-8414-c03f5df46b39" class=""><em>nearly regular polygons. It is reproduced from Gr¨unbaum and Shephard [10, Page 64], where it serves as a reminder</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8137-9627-cee4c6e58d55" class=""><em>of the danger of over-reliance on figures. A related design also appears in Bourgoin [6, Plate 163].</em></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8174-b3f7-f2f68e623684" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image7.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image7.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e4-8d4f-fe6cb9c51bba" class="">(a) (b)</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8129-aea9-f06491c75518" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image8.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image8.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f8-8522-efab77966bfa" class="">(c) (d)</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816a-8f53-edc8c397004a" class=""><em>Figure 4: A demonstration of two cases where an ex-</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bc-b6d0-e566da440a27" class=""><em>tension to the inference algorithm can produce a slightly</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813e-8a8a-f236a51d59f8" class=""><em>more attractive motif. In (a), a star pattern is shown with</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a2-a469-cb93bd5baea9" class=""><em>large unfilled areas that were the centers of regular do-</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ba-b283-efcd7e973e4a" class=""><em>decagons in the original tiling. Adding a layer of inferred</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819c-b591-d13f2a2e9b1c" class=""><em>geometry to the inside of the motif produces the improved</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8130-bb1a-d039e3900e79" class=""><em>design in (b). The process is repeated with a different</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a7-a12f-ceb20d41dd31" class=""><em>tiling in (c) and (d).</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-810d-85e6-cebf0685d783" class="">There are some cases where simple modifications to the basic inference algorithm can improve the generated motif. Consider, for example, the star pattern given in Figure 4(a). This pattern contains large regions, derived from regular dodecagons, that are left unfilled. A more attractive motif can be constructed using a second pass of the inference algorithm, building inward from the points where the rays from the first pass meet. The resulting design, shown in Figure 4(b), is more consistent with tra-dition. In the inference algorithm, it is easy to recognize when the provided tile shape is a regular polygon and to run the second round of inference when specified by the artist. Kaplan and Salesin [18] solve this problem by pro-viding a more explicit parameterization of the range of motifs that can be used to fill regular polygons.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8129-acfe-ffecc63f7429" class="">A further enhancement is to allow the contact position to split in two, as shown in Figure 1(b). The split can be accomplished by providing the inference algorithm with a second real-valued parameter <em>δ</em> that specifies the dis-tance between the new starting points of the rays. The parameter <em>δ</em> can vary from zero (giving the original con-struction) up to the length of the shortest tile edge in the</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f2-87fa-de7cc1e5d85f" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image9.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image9.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81b4-973e-e3ab886becb5" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image10.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image10.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81c0-a11e-d8f79cc9a78e" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image11.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image11.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8156-abfd-c1ccca5530cf" class=""><em>Figure 5: Examples of two-point star patterns constructed</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8109-8f1d-fc38434197a2" class=""><em>using Hankin’s method.</em> <em>Each row shows a template tiling, a star pattern with δ</em> = 0<em>, and a related two-point</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8103-9ee7-da3800dad742" class=""><em>pattern with non-zero δ. The structure of the tiling in the</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819e-9a96-dd2a0601b0b6" class=""><em>bottom row will be explained in Section 4.</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813a-bc53-f5c0c314be47" class="">tiling. This modification gives what Bonner calls “two-point patterns,” a set of designs that are historically im-portant in Islamic art [3]. Examples of two-point patterns constructed using the <em>δ</em> parameter are shown in Figure 5. The designs corresponding to two-point patterns tend to be made up of very short closed strands, each one forming a loop around a single tiling vertex in the original tiling. The contact angle is typically chosen to be 45<em>◦</em>, forming squares around the midpoints of the tiling’s edges.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b1-9b84-dde5f257df9f" class=""><strong>3.1 Islamic parquet deformations</strong></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-814a-9666-ce13eb4ec437" class="">Parquet deformations are a style of ornamental design created by William Huff, and later popularized by Dou-glas Hofstadter [16, Chapter 10]. They are a kind of “spa-tial animation,” a geometric drawing that makes a smooth transition in space rather than time. Parquet deforma-tions are closely related to M.C. Escher’s <em>Metamorphosis</em> prints [5, Page 280], though unlike Escher’s work they are purely abstract, geometric compositions.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-816b-b4cc-cbc0c3f099de" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image12.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image12.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8133-a8c6-d770c2e6c417" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image13.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image13.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8171-b6cc-d568413a890f" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image14.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image14.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8152-acb5-e8772ca7e0f5" class=""><em>Figure 6: Islamic parquet deformations based on Hankin’s method. The top diagram shows the effect of continuously varying the contact angle of a ray depending on the horizontal position of the ray’s starting point. When the process is carried to all other tiles, the design in the middle emerges. In this design, the contact angle varies from a minimum of</em> 22<em>.</em>5<em>◦at the sides up to</em> 67<em>.</em>5<em>◦in the middle. In the design on the bottom, the contact angle varies from</em> 36<em>◦at the sides up to</em> 72<em>◦in the middle.</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8105-b34c-db8891040150" class="">By exploiting Hankin’s method, we can introduce a new style of Islamic design that we call “Islamic parquet deformations”. We simply modify the inference algo-rithm so that the contact angle varies along a line. The contact angle for a ray is chosen according to a function of a horizontal position of that ray’s start position. In this way, the four rays leaving a given contact position still form an X, even though the contact angle may vary within a single tile.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8132-a092-d5a4a5488c7c" class="">Smooth variation of the contact angle results in a gen-tly changing geometric design that is still recognizably Islamic (see Figure 6). We believe that these parquet de-formations occupy an interesting place in the world of Is-lamic geometric art. The structure is recognizably in the Islamic tradition, but they would not have been produced historically because very little repetition is involved. The effort of working out the constantly changing shapes by hand and then executing them would have tested the pa-tience of any erstwhile artisan.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8107-a032-e2600c0dcade" class=""><strong>4 The rosette transform</strong></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e7-a595-e9d6409f156a" class="">A curious property of Hankin’s polygons-in-contact method is that different tilings may give rise to the same</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813a-a943-e8ab188ea76c" class="">star pattern under suitable choices of contact angle. The pattern in the top row of Figure 7 is one example. It can be produced from the tiling on the left using a contact an-gle of 54<em>◦</em>, or from the tiling on the right using a contact angle of 36<em>◦</em>. We might therefore suspect a relationship between the two tilings.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a7-a152-c611fc74128f" class="">Further evidence for this relationship can be found in the star patterns produced by the Najm system of Kaplan and Salesin [18]. The bottom row of Figure 7 shows a tiling on the left with “rosette” motifs placed in regular decagons. Kaplan and salesin provide an explicit param-eterization of these rosettes. But the right hand side of the figure demonstrates that the same pattern can arise via inference alone from the ostensibly related tiling.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8160-9aec-d45ca96a6155" class="">Our experience with Hankin’s method suggests that there are many pairs of tilings that are related in this way. Referring to Figure 7, we call the tiling on the left a“Najm tiling” and the tiling on the right a “Hankin tiling”. The two have similar structure, except that in the Hankin tiling the large regular polygons are separated by rings of potentially irregular polygons, usually pentagons.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f2-8644-db9a2f35d312" class="">In his manuscript [3], Bonner uses both kinds of tilings to create star patterns, and he too observes that a single</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8141-b8de-df98f8f44d17" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image15.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image15.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-814b-a328-e3ad7d02faf1" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image16.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image16.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a9-830e-f38fb7827c12" class=""><em>Figure 7: Examples of distinct tilings that can produce the same Islamic design. In each case, the tilings on the left is filled in using a combination of design elements and inference, and the tiling on the right uses inference alone. They meet in the shared design in the center.</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b3-8490-f0f449f62f01" class="">design may originate from multiple tilings. In this sec-tion we introduce a transformation on tilings called the“rosette transform” that explains the connection between Najm tilings and Hankin tilings. We also compare our method to Najm in terms of the patterns each approach can produce.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8128-90e0-dae1a679df44" class="">The algorithm for the rosette transform is reminiscent of the inference algorithm used in Section 3. Given a tiling, it constructs a planar map for each distinct tile shape. The planar maps are then assembled, this time into a new tiling rather than a final design. It is also a kind of dualization: the most common operation is to erect per-pendicular bisectors to edges in the original tiling. The map for each tile shape is constructed in one of two ways.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a4-a9e3-c948ea44fb8b" class="">radius <em>r</em> with five or more sides, then the map is con-<strong>Regular polygons.</strong> If the tile is a regular <em>n</em>-gon <em>P</em> of</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811f-9a9d-e3235d399872" class="">structed as in Figure 8. We build a new regular <em>n</em>-gon <em>P′</em>with radius <em>r′&lt; r</em> and place it concentric with the origi-nal polygon but rotated by <em>π/n</em> relative to it. We then add line segments connecting the vertices of <em>P′</em>to the edge midpoints of <em>P</em>. The inner radius <em>r′</em>is chosen so that the length of each of these new segments is exactly half of the side length of <em>P′</em>. Some trigonometry shows that given <em>n</em> and <em>r</em>, the correct value of <em>r′</em>is given by</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bf-bee2-c2d11f4f6789" class=""><em>r′</em>= <em>r</em> cos<em>πn−</em>sin <em>πn</em>tan<em>π</em>(<em>n −</em>2) 4<em>n</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8175-bf6a-d69d16b6e6f9" class="">The map returned is <em>P′</em>together with the segments joining it to the edge midpoints of <em>P</em>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-815e-9d8b-e64eed2ad138" class="">not satisfy the conditions above, we extend perpendicular <strong>Irregular polygons.</strong> If the tile is a polygon <em>P</em> that does</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ad-9a22-f0648e3c957f" class="">bisectors of the sides of <em>P</em> towards its interior, as shown in Figure 9. The bisectors are truncated where they meet each other. The result becomes the map for this tile. This step is similar in spirit to running the inference</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8192-84c0-c552f1cc2ec1" class="">algorithm with a contact angle of 90<em>◦</em>and is subject to the same pitfalls. We do not expect it to return a meaningful answer for every possible polygon, but in the cases of polygons that occur in Najm tilings, the map it discovers is usually appropriate.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f4-849d-f05dae795400" class="">Some heuristics also work here that do not apply in the inference algorithm. One moderately successful heuristic is to consider the intersection points of all pairs of rays and to cluster those points that lie inside the tile. Each cluster can then be averaged down to a single point that all rays contributing to that cluster can use as an endpoint. This adjustment may move some rays away from perpen-dicularity, introducing “kinks” in the middles of edges of the transformed tiling. We can correct this problem later by detecting the kinks and replacing them with straight line segments.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bf-90e5-d9888fbbe50f" class="">When this algorithm is run on Najm tilings, it tends to produce Hankin tilings. For instance, the two tiles in Figures 8 and 9 correspond to the Najm tiling on the left hand side of Figure 7. The rosette transform produces the Hankin tiling on the right hand side of the figure. Two additional examples of tilings and their rosette transforms are given in Figure 10.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-818e-82e1-fbe10007001d" class="">The rosette transform takes the intelligence out of Ka-plan and Salesin’s “design elements” and embeds it in the tiling. Suppose that in a given tiling, Najm is used to fill a regular polygon <em>P</em> with a rosette. In the rosette trans-form of that tiling, a scaled-down copy <em>P′</em>of <em>P</em> will be surrounded by a ring of irregular pentagons. With our method, these pentagons will conspire to form the hexag-onal arms of a rosette around a central star constructed inside <em>P′</em>. The rosette transform is motivated by (and named after) the goal of making the pentagons as close as possible to regular, producing rosettes that are nearly ideal in the sense given by Lee [19].</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81d8-93b8-cc2c0b4175b9" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image17.png"><img style="width:492px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image17.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-810a-b910-d2b6a1c91239" class=""><em>Figure 8: The rosette transform applied to a regular poly-</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d5-99cc-d7a93fd88fa8" class=""><em>gon. Here, a regular 10-gon of radius r is filled with</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e6-8199-c80f7df77848" class=""><em>a smaller regular 10-gon of radius r′together with seg-</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fd-b8d8-c4e6a0095ded" class=""><em>ments that join the vertices of the inner polygon to the</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816d-bf2a-f789ae9f0737" class=""><em>edge midpoints of the outer one. The inner radius is cho-</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c9-b014-e3319bee9b60" class=""><em>sen so that the marked edges have the same length.</em></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8171-9b99-f630548973b7" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image18.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image18.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ad-8770-f4ff479a9614" class=""><em>Figure 9: The rosette transform applied to an irregular</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8140-8d4b-d86e8fb0436f" class=""><em>polygon. On the left, a perpendicular bisector is drawn</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8120-b378-e40dd338aef7" class=""><em>for every tile edge as a ray pointing to the interior of the</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8135-b366-f05b522e3e6a" class=""><em>tile. The rays are cut off when they meet each other, as</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8144-b9f1-e96d24243253" class=""><em>with the inference algorithm.</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8142-984f-cf6b964b93d9" class="">In some cases, Hankin’s method generates an unsat-isfactory pattern when applied to a rosette-transformed tiling. Figure 11 shows an example where Hankin’s method discovers the topology of the correct pattern, but produces uneven rosettes. Bonner discusses how to cor-rect this situation by adjusting the contact positions on the pentagons away from the centers when necessary. How-ever, he gives no indication of when or how to carry out this adjustment.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-810f-95e2-c8d2baafa010" class="">We can appeal to the relationship between tilings and their rosette transforms to resolve this mystery. The de-sign of Figure 11(a) was constructed using the Najm method. We choose rosettes to fill the regular octago-nal tiles. By design, the hexagonal arms of the rosettes (two of which are shown shaded in the diagram) contact the edges of their surrounding octagons.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8142-9594-eb0000fb0552" class="">In Figure 11(b), the rosette arms are formed from the ring of pentagons introduced in the rosette transform. The construction of one such pentagon is shown in Figure 12. The problem is that segments <em>AE</em> and <em>BE</em> have differ-ent lengths. If we simply place contact positions at edge midpoints, then the contact positions along edges <em>AB</em> and <em>CD</em> will not be equidistant from the center of their adjacent octagon, producing an uneven arrangement of</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-811c-b622-f5f6f6211a32" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image19.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image19.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812f-ad33-f659e8a91c21" class=""><em>Figure 10: Two demonstrations of the rosette transform. The transformed tiling is shown superimposed in bold over the original.</em></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81cf-9b73-dcbce677542d" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image20.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image20.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813d-a8f9-e2872e403b96" class="">(a) (b)</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c7-806f-e99a088df3af" class=""><em>Figure 11: An example where Hankin’s method can pro-duce imperfect rosettes. In (a), Najm is used to place perfect rosettes inside regular octagons. When Hankin’s method is used on the rosette transform in (b), the rosette hexagons (shown shaded) are of two different sizes.</em></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-813e-9ea9-ffd1ef49be3f" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image21.png"><img style="width:648px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image21.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c3-a40e-d57bcad733b5" class=""><em>Figure 12: An illustration of the adjustment to contact po-sitions that recovers perfect rosettes in Hankin’s method. The horizontal line indicates the midpoint of the edge of the shaded tile in the rosette transform. But the correct location for the contact point is the intersection of that edge with the edge of the original tiling.</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8123-b8df-ed25189a8374" class="">rosette arms. Although the shaded pentagon is topologi-cally dual to the vertex it contains, it is not dually situated (its edges are not bisected by the original tiling). We cor-rect the discrepancy by recording the intersection points of the rosette transform with the original tiling, and using them as contact positions.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8180-bc84-d0b13ce6f99b" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image22.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image22.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c2-ba50-d7a4d87f5467" class=""><em>Figure 13: A decorated star pattern produced using the</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d2-9278-c162f60a70ac" class=""><em>polygons-in-contact method.</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8106-bd03-d5d1cb0f11cd" class="">Thus there a deep connection between these two kinds of tilings, which can expose the logic behind what may have seemed like an arbitrary but essential adjustment. Furthermore, these revised contact positions can be cal-culated easily while the rosette transform is computed.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8160-ae2c-c229121d93d9" class=""><strong>5 Implementation</strong></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8182-8559-f3d3d9f523f7" class="">We have implemented the approach described in this pa-per as a standalone Java application. The application’s interface shows a tiling with a corresponding Islamic star pattern superimposed on it. The user is able to select the tiling to work with and modify the contact angle <em>θ</em>and distance <em>δ</em> used to produce two-point patterns. They can also choose whether to incorporate a second pass of the inference algorithm in large, regular polygons, and whether to adjust the contact positions away from the edge midpoints as described at the end of Section 4. All of these changes are reflected in the design interactively, making it easy and enjoyable to browse a wide range of star patterns. When the user has decided upon a design, they can render it using the decoration styles first devel-oped for Taprats [17]. A decorated pattern is shown in Figure 13.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8187-8f72-d4d7849f44bf" class="">Our current software handles only periodic tilings (though there is no such limitation in the underlying tech-nique). A tiling is represented by two translation vectors and a collection of untransformed polygons. Each poly-gon holds a list of transformations that map it to its oc-curences in a single translational unit. This information is sufficient to cover any region of the plane with a subset of the tiling. In the interactive designer, planar maps rep-resenting motifs are associated with the tile shapes and drawn with them. A standalone Java application can be used to construct periodic tilings by hand. The user can create regular polygonal tiles and snap them together, fill</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81c3-8710-ec51498a4a60" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image23.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image23.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b9-87f6-cc25ba5726a5" class=""><em>Figure 14: A classic Islamic star pattern that cannot eas-</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-815e-9223-cdf90079003b" class=""><em>ily be expressed using a combination of Hankin’s method</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819f-b2c1-f34c330ab40a" class=""><em>and the rosette transform.</em></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81b7-bc59-fa328be0a5c6" class="image"><a href="Islamic_Star_Patterns_from_Polygons%20in_Contact/image24.png"><img style="width:700px" src="Islamic_Star_Patterns_from_Polygons%20in_Contact/image24.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813d-8fb6-c6282fbd68d0" class=""><em>Figure 15: An unusual star pattern, reproduced from Bon-</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8147-b174-d5191f333371" class=""><em>ner’s manuscript, featuring 11- and 13-pointed stars.</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8115-827c-fc2e352b825c" class="">in irregular holes with new tiles, and specify translation vectors. Another program accepts a periodic tiling as in-put, and computes its rosette transform.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a5-976f-ea1324561783" class="">The construction of Islamic parquet deformations re-quires many separate invocations of the inference algo-rithm, and is currently too slow to run interactively. It is implemented as a command-line application that builds a design from parameters specifying the bounding box and contact angle range.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8108-8552-c34eadeafe70" class=""><strong>6</strong> <strong>Future work</strong></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f7-8b1d-d2076423f77b" class="">Despite the power of the Hankin’s method combined with the rosette transform, some important historical patterns are still out of reach. One example is given in Fig-ure 14. This pattern is easy to construct from a tiling of dodecagons and triangles using Kaplan and Salesin’s Najm. Their technique provides an explicit parameteri-</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816f-87d1-f73263bbfc70" class="">zation of the motifs in the dodecagons, which they call“extended rosettes”. It is tempting to assume that we can arrive at the same pattern via two iterations of the rosette transform on this tiling. Closer examination reveals that where lines cross, they form angles of both 30<em>◦</em>and 60<em>◦</em>. Any inference-based representation of this pattern would need either to allow multiple different contact angles, or Either non-greedy choices in the inference algorithm.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811a-bced-dc8b2547bac3" class="">way, more work is necessary to discover the principles that govern these choices.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ea-82f2-c4923f56c324" class="">Hankin tilings are better suited than Najm tilings for constructing some patterns. Bonner exhibits several re-markable designs with unusual combinations of motifs; Figure 15 shows a pattern with 11-pointed and 13-pointed rosettes. These remarkable designs are possible because the extra layer of irregular tiles can absorb the error when reconciling the incompatible angles of the regular 11- and 13-gons. Note that the tiling that produces this design is not the rosette transform of any tiling. Hankin tilings can therefore be considered “primitive” in some cases. An-other primitive Hankin tiling is the “Altair” tiling in the bottom row of Figure 3. It would be interesting to exam-ine what other unusual combinations of regular polygons could be accommodated in a single pattern in this way, and how to generate the associated Hankin tilings auto-matically.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8148-b6c9-f6dbf1310d8e" class="">One other unexplored direction in this work is its extension to non-Euclidean geometry, as demonstrated by Kaplan and Salesin [18]. This extension would be straightforward. The only change would be a general-ization of the formula for scaling regular polygons in the rosette transform. It should be possible to express a gen-eral formula using the “absolute trigonometry” given in the appendix of their paper.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812d-bdf2-d68d66ab8f78" class=""><strong>References</strong></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b3-8550-dc5b3901b8d1" class="">[1] S.J. Abas and A. Salman. Geometric and group- theoretic methods for computer graphics studies of Islamic symmetric patterns. <em>Computer Graphics</em> <em>Forum</em>, 11(1):43–53, 1992.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b7-acb6-c1c11237e27d" class="">[2] S.J. Abas and A. Salman. <em>Symmetries of Islamic</em> <em>Geometrical Patterns</em>. World Scientific, 1995.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8163-a7f9-e0352e509dc7" class="">[3] Jay Bonner. <em>Islamic Geometric Patterns: Their</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e6-a410-ee94228d3665" class=""><em>Historical Development and Traditional Methods of Derivation</em>. Unpublished, 2000.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8101-a52c-d5d035fc5072" class="">[4] Jay Bonner. Three traditions of self-similarity in fourteenth and fifteenth century islamic geometric ornament. In Reza Sarhangi and Nathaniel Fried- man, editors, <em>ISAMA/Bridges 2003 Proceedings</em>, pages 1–12, 2003.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813c-93ea-ed7c82bb837a" class="">[5] F. H. Bool, J. R. Kist, J. L. Locher, and F. Wierda.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b7-8847-cd0d389c6846" class=""><em>M. C. Escher:</em> <em>His Life and Complete Graphic Work</em>. Harry N. Abrams, Inc., 1992.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8172-8504-e08c447c6c92" class="">[6] J. Bourgoin. <em>Arabic Geometrical Pattern and De-sign</em>. Dover Publications, 1973.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81da-8ad3-f437df517f67" class="">[7] Jean-Marc Cast´era. <em>Arabesques: Decorative Art in Morocco</em>. ACR Edition, 1999.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8157-85c0-cf6d3ee99c80" class="">[8] Keith Critchlow. <em>Islamic Patterns: An Analytical and Cosmological Approach</em>. Thames and Hudson, 1976.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8118-bbeb-da3d0c241a6c" class="">[9] Franc¸ois Dispot. Arabeske home page, 2002.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816f-8685-e87d6ffa7911" class="">[10] Branko Gr¨unbaum and G. C. Shephard. <em>Tilings and Patterns</em>. W. H. Freeman, 1987.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a4-848b-dcfed6642890" class="">[11] Branko Gr¨unbaum and G. C. Shephard. Interlace patterns in Islamic and Moorish art. <em>Leonardo</em>, 25:331–339, 1992.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e4-b408-e097029efe5c" class="">[12] E. H. Hankin. <em>The Drawing of Geometric Patterns in Saracenic Art</em>, volume 15 of <em>Memoirs of the Ar-chaeological Society of India</em>. Government of India, 1925.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8192-8e69-e11bb815362c" class="">[13] E. Hanbury Hankin. Examples of methods of draw-ing geometrical arabesque patterns. <em>The Mathemat-ical Gazette</em>, pages 371–373, May 1925.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a8-bb91-c789a88afd78" class="">[14] E. Hanbury Hankin. Some difficult Saracenic de-signs II. <em>The Mathematical Gazette</em>, pages 165–168, July 1934.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8124-b549-f8ae6e866a04" class="">[15] E. Hanbury Hankin. Some difficult Saracenic de-signs III. <em>The Mathematical Gazette</em>, pages 318–319, December 1936.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8102-822a-e641d67205f9" class="">[16] Douglas Hofstadter. <em>Metamagical Themas: Quest-ing for the Essence of Mind and Pattern</em>. Bantam Books, 1986.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819a-877a-d8e1f4816cc6" class="">[17] Craig S. Kaplan. Computer generated islamic star patterns. In Reza Sarhangi, editor, <em>Bridges 2000 Proceedings</em>, 2000.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d5-a8e1-e32813cb5132" class="">[18] Craig S. Kaplan and David H. Salesin. Islamic star patterns in absolute geometry. <em>ACM Trans. Graph.</em>, 23(2):97–119, 2004.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fb-9b4b-cc8dfa6e2f92" class="">[19] A.J. Lee. Islamic star patterns. <em>Muqarnas</em>, 4:182–197, 1987.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811d-b8ab-e26332794d42" class="">[20] Victor Ostromoukhov. Mathematical tools for computer-generated ornamental patterns. In <em>Elec-</em></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8178-8294-c23350df6b5e" class=""><em>tronic Publishing, Artistic Imaging and Digital Ty-pography</em>, number 1375 in Lecture Notes in Com-puter Science, pages 193–223. Springer-Verlag, 1998.</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

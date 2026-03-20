@@ -1,0 +1,710 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>FiveFold_Pattern_3</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2daac165-e88d-8140-94a7-f8ef0152705b" class="page sans"><header><h1 class="page-title" dir="auto">FiveFold_Pattern_3</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2daac165-e88d-811b-a1ec-ff17c225ace4" class="">Tutorial Eighteen</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811e-999c-c3751834696b" class="">Drawing Fivefold Pattern in a standard Rectangle</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e0-881d-eeaa060620f0" class="">Due to several request, I will illustrate in this tutorial this fivefold pattern. And for the first time I will reveal a very important and significant method of constructing the standard rectangle that encompass most fivefold patterns. I learnt this method from my teacher Mr. Mohamad Abdulrazak Aljanabi. This method shows that the artisans from Baghdad had a very sophisticated geometric knowledge. Their knowledge of geometry is far more advanced than many so called experts. I never saw anyone refer or mention this method up to now. If anyone knows otherwise please let me know.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8196-9235-d0251c487525" class="">الدرس الثامن عشر</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8195-9283-f6233d605432" class="">رسم تركيب زخرفي خماسي داخل مستطيل اساسي</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8112-97ec-f024c08a3d10" class="">نظراً للعديد من الطلبات ، سأوضح في ھذا الدرس رسم تركيب خماسي.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8128-b71e-eba018f9bdd7" class="">وللمرة األولى ، سأكشف عن طريقة مھمة لبناء المستطيل االساسي واللذي</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fa-813e-d0050c862e2d" class="">ترسم بداخله معظم التراكيب الزخرفية الخماسية. وقد تعلمت ھذه الطريقة</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8123-8cc8-c7839ec6cda3" class="">من أستاذي المرحوم محمد عبد الرزاق الجنابي. وان دلت ھذه الطريقة على شئ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8118-ad8a-ed2d14e58a01" class="">فانھا تدل داللة واضحة على أن الحرفيين البغداديين كانت لديھم معرفة ھندسية متطورة وواسعة. وإن احاطتھم بالھندسة ھي أكثر تقدمًا بكثير من</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-818e-80ad-c4d667cfd48e" class="">بعض الذين يدعون انھم خبراء. ولم أر قط أحدا يشير أو يذكر ھذه الطريقة</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8198-b5ce-c258b8c5693e" class="">حتى اآلن. وإذا كان ھناك من يعرف خالف ذلك ، فيرجى اعالمي بذلك.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fa-b24b-dbb625b7cc8d" class="">1</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8153-b01c-e188ee6024ef" class="image"><a href="FiveFold_Pattern_3/image1.png"><img style="width:676px" src="FiveFold_Pattern_3/image1.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8154-bb84-daadc5296e4e" class="image"><a href="FiveFold_Pattern_3/image2.png"><img style="width:24px" src="FiveFold_Pattern_3/image2.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816c-8544-c6cf37d378a7" class="">Tutorial Eighteen</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819e-bfe7-d01b223a95ca" class="">Drawing Fivefold Pattern in a standard Rectangle</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8114-93dd-d3fdb4f950d6" class=""><span style="border-bottom:0.05em solid">Notes:‐</span></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816d-86f7-d32bd1d6c5af" class="">1. For this patterns you need to construct a square first, please go to the</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812f-8539-d2726e768399" class="">link below to download the file on “How to construct a square”.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813a-890b-ca6feedee253" class=""><span style="border-bottom:0.05em solid">https://www.facebook.com/groups/zakhrafa.school/214606475755864/</span></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812a-b240-eca5ec71160d" class="">2. Please do not remove the construction lines when posting your drawing.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816c-a205-fa8ea8850e55" class="">3. The Red lines and circles indicate the present steps.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812e-9126-e380d521d378" class="">4. The Orange lines and circles indicate the previous steps.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8137-b153-eeaae9d223bd" class="">5. The Red dashed lines and circles indicate extensions of lines and</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b0-b640-d528c6f15dc5" class="">Arcs.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819d-9f34-ecb9b3756000" class="">6. The Red symbol indicates the center location of Circles and Arcs.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8171-8d52-dafba183ddc8" class="">7. These two symbols indicate the Radius of Circles and Arcs.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8104-a009-d81eebe2ef1b" class="">2</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8157-8597-dc0dd42baf8d" class="image"><a href="FiveFold_Pattern_3/image4.png"><img style="width:676px" src="FiveFold_Pattern_3/image4.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8106-b8c8-c572bc8674d3" class="image"><a href="FiveFold_Pattern_3/image5.png"><img style="width:24px" src="FiveFold_Pattern_3/image5.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8108-870a-f84287861f7d" class="">الدرس الثامن عشر</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fa-b6d8-e9db0d50b462" class="">رسم تركيب خماسي داخل مستطيل اساسي</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8188-9cf5-e002883d0f7f" class=""><span style="border-bottom:0.05em solid">:المالحظا</span>ت</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f5-91c2-d79c994b411b" class="">. لھذا الدرس ينبغي رسم مربع اوال. الرجاء تنزيل الملف الخاص بشرح كيفية رسم 1</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c7-8aa6-e0a785e892dc" class="">.المربع من الرابط ادناه</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8121-8d77-ed7ad18c5e40" class=""><span style="border-bottom:0.05em solid">https://www.facebook.com/groups/zakhrafa.school/214606662422512/</span></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8104-919b-fe878bf99b28" class="">.. الرجاء االبقاء على خطوات رسم قاعدة التركيب عند رفع صور التمرين2</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81df-8d89-d562bb2fa92e" class="">.. الخطوط والدوائر الحمراء تمثل الخطوة الحالية3</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8159-a43a-e9ca938b5d09" class="">.. الخطوط والدوائر البرتقالية تمثل الخطوة السابقة4</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8100-9f28-ef693821db66" class="">.. الخطوط والدوائر الحمراء المتقطعة تمثل امتدادات الخطوط والدوائر5</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-810c-acae-f21e797c374d" class="">.. العالمة او الرمز االحمر تمثل اماكن مراكز الدوائر واالقواس6</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f3-8294-de2f8bed62fd" class="">ن ق</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8188-a29a-f2822a8e44e0" class="image"><a href="FiveFold_Pattern_3/image3.png"><img style="width:676px" src="FiveFold_Pattern_3/image3.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8112-8f7e-d349824b066f" class="">R</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bb-882d-f5687f3e81be" class="">R /ن ق</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f2-a8bf-d8e192347834" class="">3</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8160-b9f0-fae4214d1d75" class="">. ھذين الرمزين يمثالن نصف قطر7 .الدوائر واالقواس</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81df-ba24-ec4416da66dc" class="">Constructing the standard Fivefold rectangle and dividing the angles into five equal angles each.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b4-9508-c3d66baabafc" class="">Not that this rectangle is used to draw most fivefold patterns.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8182-828b-d1a3855513e7" class="">رسم المستطيل االساسي للتراكيب</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8124-b96e-e9fec7af4ad6" class="">الخماسية و تقسيم الزوايا الى خمس زوايا متساوية.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-814f-ad2a-cbfd2317e5b7" class="">علما بان المستطيل االساسي يستخدم لرسم اكثر التراكيب الھندسية الخماسية</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-814d-a0b2-c24f8cd4bce2" class="">4</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8101-941e-d2008836c142" class="">First draw a square, and extend two sides of the square as illustrated below.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f4-a674-ce11860a5019" class="">To draw a square use this file:</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ce-9c79-fc5e55419be5" class="">https://www.facebook.com/groups/zakhrafa.school/permalink/214606475755864/</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d3-a5da-d6ab5ce20b83" class="">.اوال ارسم مربع ثم مد ضلعين من اضالع المربع كما في الشكل ادناه لرسم المربع استخدم ھذا الملف: https://www.facebook.com/groups/zakhrafa.school/permalink/214606475755864/</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-812a-8ff4-fb2c59989d88" class="image"><a href="FiveFold_Pattern_3/image6.png"><img style="width:700px" src="FiveFold_Pattern_3/image6.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8189-9a1e-d32c27b7151a" class="">5</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81b5-a026-e1b19896b5e5" class="image"><a href="FiveFold_Pattern_3/image9.png"><img style="width:700px" src="FiveFold_Pattern_3/image9.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8184-85b6-f85909ec7aba" class="">Remove the horizontal line because it is not needed. The benefit of constructing the square via this method is that it will divide the side of the square into two equal segments. Thus the point ”B” is the midpoint on the base of the square. Next draw a line connecting the points &quot;B&quot; and &quot;D&quot;.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8143-ab79-cf886622817d" class="">امسح الخط االفقي لعدم الحاجة لھذا الخط. الفائدة من رسم المربع بالطريقة المذكورة</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81e8-b2fa-db71b1644bcb" class="image"><a href="FiveFold_Pattern_3/image7.png"><img style="width:76px" src="FiveFold_Pattern_3/image7.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f3-bbfc-dec99fdaee27" class="">ھيباي ان النقطة</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81c4-ba52-fef211a392c4" class="image"><a href="FiveFold_Pattern_3/image8.png"><img style="width:12px" src="FiveFold_Pattern_3/image8.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bf-9200-ec35c44def89" class="">في انھا ستقسم اضالع المربع الى قسمين متساويين منتصف قاعدة المربع. ثم ارسم خط يوصل بين النقطتين &quot;ب&quot; و &quot;د&quot; .</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819d-9163-fec055915696" class="">Dد</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811b-8b42-fa492d5e7380" class="">أCجـA Bب</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-818c-be8a-f6779ae323b0" class="">6</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-818c-9223-d39e933a1485" class="image"><a href="FiveFold_Pattern_3/image10.png"><img style="width:700px" src="FiveFold_Pattern_3/image10.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81db-bd0c-d102e2e64b2a" class="">Open the compass to a distance equal to “B ‐ C”. And then place the compass at point“B”, and draw a small arc intersecting the line “B ‐ D” at point &quot;E&quot;.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8169-a5dc-ce7677d2e984" class="">&quot; جـ&quot; ثم ضع ابرة الفرجال في النقطة &quot;ب- افتح الفرجال بمسافة تساوي المسافة &quot;ب د&quot; في النقطة &quot;ھـ&quot;- وارسم قوس صغير بحيث يتقاطع مع الخط &quot;ب</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8140-97c8-d857491545db" class="">Dد</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81cc-937d-ec6b9536668f" class="">Eھـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8173-80c4-e95b56e458b3" class="">أCجـAب R /ن ق</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c3-8e25-c587119c3c1c" class="">7</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8139-b4c6-df8fca0da6bd" class="image"><a href="FiveFold_Pattern_3/image11.png"><img style="width:700px" src="FiveFold_Pattern_3/image11.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8101-8af6-f98e387d0cee" class="">Open the compass to a distance equal to “D ‐ E”. And then place the compass at point“D”, and draw a small mark intersecting with the large arc at point “F”. And remember not to change the compass at this stage as we will need it in the next step. Note that the arc segment “D‐F” is equal two fifths of the arc “D ‐ C”.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8189-929f-f0664eb0663a" class="">ھـ&quot; ثم ضع ابرة الفرجال في النقطة &quot;د&quot; وارسم- افتح الفرجال بمسافة تساوي المسافة &quot;دقوس صغير بحيث يتقاطع مع القوس الكبير في النقطة &quot;و&quot; . في ھذه المرحلة ال تغير و&quot; يساوي خمسي - فتحة الفرجال الننا سنحتاجھا في الخطوة التالية. مالحظة, القوس &quot;د جـ&quot; .- القوس &quot;د</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d1-b935-d427ee9124e4" class="">Dد</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819f-a2b3-ddb8a174e46c" class="">Fو</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a8-8ce2-de551966387d" class="">Eھـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8135-a564-fab576c08c47" class="">أCجـAب</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8156-be46-cda9ab58d6f1" class="">8</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f9-82f0-e6a4fef78fc6" class="image"><a href="FiveFold_Pattern_3/image12.png"><img style="width:700px" src="FiveFold_Pattern_3/image12.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a7-a252-c52b040206bf" class="">Without changing the compass from the previous step, place it at point “F”, and draw a small mark intersecting with the large arc at point “G”. Again the arc segment“F‐G” is equal two fifths of the arc “D ‐ C”. Therefore the arc segment “G ‐ C” equal to one fifth of the total arc “D ‐ C”.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8139-a05f-c62db4662946" class="">من دون تغيير فتجة الفرجال, ضع ابرة الفرجال في النقطة &quot;و&quot; وارسم قوس صغير ز&quot; يساوي - بحيث يتقاطع مع القوس الكبير في النقطة &quot;ز&quot; . مرة اخرى فان القوس &quot;و جـ&quot; .- خمسي القوس &quot;د</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8140-93f4-e18ddf0f135c" class="">Dد</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fd-91cf-c1c3bd601367" class="">Fو</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a3-b8e5-f1ea94e89046" class="">Eھـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8153-a80a-d1de17dd9dbe" class="">Gز</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8150-9224-dff7792826f9" class="">أCجـAب</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8165-af56-d4797af0ad24" class="">9</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-813e-8d95-ee41e44c5e94" class="image"><a href="FiveFold_Pattern_3/image13.png"><img style="width:700px" src="FiveFold_Pattern_3/image13.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f7-af75-cf0ffdfeb9c8" class="image"><a href="FiveFold_Pattern_3/image14.png"><img style="width:700px" src="FiveFold_Pattern_3/image14.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813c-9f54-ff313a77532c" class="">Draw a line connecting the lower right corner &quot;A&quot; and point &quot;G&quot; and extend the line until it intersect with left side at point &quot;H&quot;.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8193-bf31-d303840daa3f" class="">ارسم خط يوصل بين الزاوية السفلى على اليمين النقطة &quot;أ&quot; والنقطة &quot;ز&quot; ومد ھذا الخط الىان يقطع الضلع على اليسار في النقطة &quot;حـ&quot; .</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a1-b782-c4594c6e97cb" class="">Fو</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f3-8501-ff9798deb30f" class="">H G</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-818b-9203-d9398cdbb94c" class="">حـ ز</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8158-bde2-e0b7b4850097" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8119-bd14-d517f8af7292" class="">Cجـ Aأ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81dc-b1d1-fba4084c562c" class="">H</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812c-ac80-eb39c34b1e07" class="">G</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8127-8a80-dfa6f5bbc36e" class="">حـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b6-a134-ff9fb4db701b" class="">ز</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8168-8969-fe37c9702b52" class="">10</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81db-9f8d-d3b6f97fb9df" class="image"><a href="FiveFold_Pattern_3/image15.png"><img style="width:700px" src="FiveFold_Pattern_3/image15.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8197-83f5-f6bc913edaeb" class="">At this stage you might be tempted to draw a line connecting the lower right corner &quot;A&quot; and the point &quot;F&quot; and extend this line until it intersect the left side. But this is a big extension and it&#x27;s prone to errors. In addition this requires more steps to divide the opposite corner into five equal. Therefore I will not continue with this method.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8192-8d99-e61c27bec44a" class="">&quot;في ھذه المرحلة ، قد يميل البعض إلى رسم خط يربط بين الزاوية السفلية اليمنى &quot;أوالنقطة &quot;و&quot; ومد ھذا الخط حتى يتقاطع مع الجانب األيسر. لكن مد ھذا الخط كبير وعرضة للخطأ. باإلضافة إلى ذلك ، ھذا يتطلب خطوات أكثر لتقسيم الزاوية المقابلة إلى خمس زوايا متساوية. ولھذا لن استمر في ھذه الطريقة.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b4-87f5-ddff46c7c9ef" class="">Fو</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8135-851d-d6eaa96d124a" class="">H G</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81cf-9627-fb30c425a137" class="">حـ ز</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d0-b614-c603902b1744" class="">Cجـ Aأ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8133-be64-ebea602bdc19" class="">11</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-818c-9b54-d1663bd11515" class="image"><a href="FiveFold_Pattern_3/image16.png"><img style="width:700px" src="FiveFold_Pattern_3/image16.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8164-ac38-e4dccfb14bb8" class="">Instead I will continue by illustrating the “Baghdadi Method”. Open the compass to a</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a3-ac24-c742d9cf5647" class="">distance equal to “A ‐ H”. And place the compass at point “A” and make a mark on the</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8136-b617-c71ea3402994" class="">right vertical side. And do not change the compass as we will need it in the next step.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8179-a0dc-f492b6c58312" class="">بدال من ذلك ساستمر في شرح &quot;الطريقة البغدادية&quot; . وذلك بفتح الفرجال بمقدارالمسافة بين النقطة &quot;أ&quot; والنقطة &quot;حـ&quot; ثم ضع ابرة الفرجال في النقطة &quot;أ&quot; وارسم اشارة على الخط العمودي على اليمين. وال تغير فتحة الفرجال الننا سنحتاج اليھا في الخطوة التالية.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ab-ae3d-d4c761b04b9d" class="">Jط</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f7-9e7e-e7a4c829e091" class="">H</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f1-9237-ead840dcc9b5" class="">حـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8123-abf8-caaa75dea90e" class="">Cجـ Aأ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fe-a1e8-fe4a4b3ba0ff" class="">12</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8119-91e4-f66856e6bb3c" class="image"><a href="FiveFold_Pattern_3/image17.png"><img style="width:700px" src="FiveFold_Pattern_3/image17.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8170-ad5b-ffc5895ddd8a" class="">Without changing the compass from the previous step, place it at point “C”, and make a mark on the left vertical side.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ab-8a64-ee99c84bc3e7" class="">من دون تغيير فتجة الفرجال, ضع ابرة الفرجال في النقطة &quot;جـ&quot; وارسم اشارة على الخطالعمودي على اليسار.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8190-8e5b-f3c5fff09a75" class="">Kك Jط</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8103-9258-fbfee6b20884" class="">H</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8103-b031-e238e3a1af22" class="">حـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817d-aa53-e8a3562b83eb" class="">Cجـ Aأ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d6-b690-f4a4269d2e4e" class="">13</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8176-8a55-e8a1ea17c43b" class="">At this stage it would be better to remove the unwanted lines.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81df-a56a-e73de29632ad" class="">.في ھذه المرحلة من االفضل ازالة او مسح الخطوط التي ال حاجة لھا</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8144-a7e9-d07db1ec0331" class="image"><a href="FiveFold_Pattern_3/image18.png"><img style="width:700px" src="FiveFold_Pattern_3/image18.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812f-8c2e-c7ac7bb93a9e" class="">14</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8189-b156-dfa457c95b46" class="image"><a href="FiveFold_Pattern_3/image19.png"><img style="width:700px" src="FiveFold_Pattern_3/image19.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8134-b9dd-cd76c8ff9729" class="image"><a href="FiveFold_Pattern_3/image20.png"><img style="width:700px" src="FiveFold_Pattern_3/image20.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f3-90fb-f4a13e0e9aa1" class="">Open the compass to a distance equal to “C ‐ H” (you don&#x27;t need to draw a circle at this</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b0-bd99-f15fc0c51371" class="">point). And place the compass at the points “J” and &quot;K&quot; make marks on the right and left</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812a-8c0b-da757c576666" class="">vertical sides as illustrated below.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8155-b9d5-fc7e61a73c05" class="">افتح الفرجال بمقدار المسافة بين النقطة &quot;جـ&quot; والنقطة &quot;حـ&quot; ثم ضع ابرة الفرجال فيالنقطة &quot;ط&quot; والنقطة &quot;ك&quot; ثم ارسم اشارات على الخط العمودي على اليمين واليسار كما في الشكل ادناه.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8175-875e-e279b105b263" class="">JطKك</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f1-921b-fe3caee3a83b" class="">Hحـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8123-a4aa-e990607eb89e" class="">R /ن ق</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d2-97bf-e840f982e030" class="">AأCجـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b2-83cc-f8ca24dd0747" class="">Hحـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b9-a1d7-cccf5e26d5ac" class="">Cجـ</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8125-b738-c1cd5089761a" class="">15</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fd-9f01-fd2ca345fbe0" class="">To complete the standard five fold rectangle, draw a line connecting the two points as illustrated below. In the steps we will divide the two opposite angles.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8137-b9eb-ff18390691fb" class="">الكمال رسم المستطيل االساسي ارسم خط يوصل بين النقطتين كما في الرسم ادناه. فيالخطوات التالية سنقسم الزوايا المتقابلة.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-815a-9cca-d5e2c47353a3" class="image"><a href="FiveFold_Pattern_3/image21.png"><img style="width:700px" src="FiveFold_Pattern_3/image21.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d7-99e6-d71f2f4377bb" class="">16</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-810b-9dfd-d648791cf05b" class="">First draw two lines as illustrated below.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c8-98a9-e8ca6f30bd5b" class="">.اوال ارسم خطين كما ھو موضح في الرسم ادناه</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8196-a2eb-f84ce765cad6" class="image"><a href="FiveFold_Pattern_3/image22.png"><img style="width:700px" src="FiveFold_Pattern_3/image22.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8104-b54f-c272f99cf2ba" class="">17</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-811f-8779-d1bca17515dc" class="image"><a href="FiveFold_Pattern_3/image23.png"><img style="width:700px" src="FiveFold_Pattern_3/image23.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812d-a540-e3ee2a6382d5" class="">To divide the lower corner draw three lines as illustrated below. Notice that the middle must pass through the point &quot;F&quot;.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8108-9698-ed7a56f2eb64" class="">لتقسيم الزاوية السفلى ارسم ثالث خطوط كما ھو مبين في الرسم ادناه. يرجى مالحظة انالخط االوسط ينبغي ان يمر من خالل النقطة &quot;و&quot; .</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817c-88b2-cecb2fbed7f6" class="">Fو</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bb-aedd-faded1cad49b" class="">18</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8186-bb15-ff4ab11cebb5" class="">To divide the top corner draw three lines as illustrated below.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812f-a792-f02304ad05dd" class="">.لتقسيم الزاوية العليا ارسم ثالث خطوط كما ھو مبين في الرسم ادناه</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8133-851d-cf9ca9b221fd" class="image"><a href="FiveFold_Pattern_3/image24.png"><img style="width:700px" src="FiveFold_Pattern_3/image24.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f8-97e7-fe26bd474238" class="">19</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81d0-91ff-fe12dea2eac4" class="image"><a href="FiveFold_Pattern_3/image25.png"><img style="width:700px" src="FiveFold_Pattern_3/image25.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bf-bc6c-f6fd7c884ae8" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819d-82d8-f3066b1829c7" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e4-9eb6-fb1a05f66759" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e0-9dc1-d0d66ea298b2" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b7-96da-ec24ade4041d" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-815c-a27d-db9edac5b8ff" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8154-ad6b-fcecde95295e" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8131-8109-e901adec05ea" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819a-acdc-ec3b8581b821" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fd-bf27-f15cefa8c9d3" class="">18.0°</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816a-8cc2-d91c5b991227" class="">20</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8187-9a35-f3ff0027e499" class="">Constructing the Fivefold Pattern</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a0-95ab-c93d159632a9" class="">رسم التركيب الزخرفي الخماسي</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-818d-a632-e68ee02a8cbc" class="">21</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8149-aed7-ebc5e0ca9ca9" class="image"><a href="FiveFold_Pattern_3/image26.png"><img style="width:700px" src="FiveFold_Pattern_3/image26.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811e-975e-fb0f27e813d1" class="">22</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8116-8f3b-fe638b209a57" class="image"><a href="FiveFold_Pattern_3/image27.png"><img style="width:700px" src="FiveFold_Pattern_3/image27.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-810a-98c9-ceca088ddb30" class="">23</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81fd-9f2f-eb5da73447a7" class="image"><a href="FiveFold_Pattern_3/image28.png"><img style="width:700px" src="FiveFold_Pattern_3/image28.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817a-9d54-f5abff7949b3" class="">24</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8132-932b-db853579e35d" class="image"><a href="FiveFold_Pattern_3/image29.png"><img style="width:700px" src="FiveFold_Pattern_3/image29.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8186-847e-c3bdcfce3f37" class="">25</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f5-8360-d5c3f71bae7f" class="image"><a href="FiveFold_Pattern_3/image30.png"><img style="width:700px" src="FiveFold_Pattern_3/image30.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8125-ad88-d1fa5b63bbbc" class="">26</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81a1-a764-c07d99d901d0" class="image"><a href="FiveFold_Pattern_3/image31.png"><img style="width:700px" src="FiveFold_Pattern_3/image31.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819f-a680-da4475e7e31a" class="">27</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81d8-8e3f-c81dd76e9315" class="image"><a href="FiveFold_Pattern_3/image32.png"><img style="width:700px" src="FiveFold_Pattern_3/image32.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8148-84e7-e746ebf8c5c2" class="">28</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-814c-b99f-ceea82011d8e" class="image"><a href="FiveFold_Pattern_3/image33.png"><img style="width:700px" src="FiveFold_Pattern_3/image33.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8193-9d7f-d62b61433d68" class="">29</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-814d-942e-ef664c104d03" class="image"><a href="FiveFold_Pattern_3/image34.png"><img style="width:700px" src="FiveFold_Pattern_3/image34.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8176-aa77-c7df58ce1eab" class="">30</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-819e-83ca-ef580334e062" class="image"><a href="FiveFold_Pattern_3/image35.png"><img style="width:700px" src="FiveFold_Pattern_3/image35.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8144-a560-c1d54922b457" class="">31</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8178-b794-ef2251cc34f7" class="image"><a href="FiveFold_Pattern_3/image36.png"><img style="width:700px" src="FiveFold_Pattern_3/image36.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8103-b4dc-c370e3aca225" class="">32</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f9-b996-f6c30046b0dc" class="image"><a href="FiveFold_Pattern_3/image37.png"><img style="width:700px" src="FiveFold_Pattern_3/image37.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812e-8072-c8d2aff16b73" class="">33</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81c4-b8f0-c54fbf427c68" class="image"><a href="FiveFold_Pattern_3/image38.png"><img style="width:700px" src="FiveFold_Pattern_3/image38.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811f-a6c8-e6ac32d1677e" class="">34</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8146-899d-ccc39eba6c93" class="image"><a href="FiveFold_Pattern_3/image39.png"><img style="width:700px" src="FiveFold_Pattern_3/image39.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bc-ac75-d7358dedc66b" class="">35</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-815e-ac31-f536b1b912c7" class="">Comparing this drawing with draw Mr. David Wade&#x27;s drawing In this drawing the pentagon fits exactly inside the central star (the shamsah)</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8165-b9fd-fd93908b666b" class="image"><a href="FiveFold_Pattern_3/image40.png"><img style="width:700px" src="FiveFold_Pattern_3/image40.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81b9-91c2-d68fe63e5027" class="image"><a href="FiveFold_Pattern_3/image41.png"><img style="width:700px" src="FiveFold_Pattern_3/image41.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8108-bd64-cd11a72ecd27" class="">(</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-810a-9c4a-f0e30ed86b24" class="image"><a href="FiveFold_Pattern_3/image42.png"><img style="width:156px" src="FiveFold_Pattern_3/image42.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8138-bae2-eef584afd480" class="">)</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-816e-958a-ee83d038c7ae" class="image"><a href="FiveFold_Pattern_3/image43.png"><img style="width:700px" src="FiveFold_Pattern_3/image43.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d3-a61a-e71a4fced591" class="">36</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8129-8a50-d1dd172f9c3d" class="image"><a href="FiveFold_Pattern_3/image46.png"><img style="width:700px" src="FiveFold_Pattern_3/image46.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bc-9a35-c65f156758ee" class="">Comparing this drawing with draw Mr. David Wade&#x27;s drawing On the other hand in Mr. Wade&#x27;s drawing the pentagon is smaller and does not fit inside the central star (the shamsah).</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81e8-8473-f0593ad76067" class="image"><a href="FiveFold_Pattern_3/image40.png"><img style="width:700px" src="FiveFold_Pattern_3/image40.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81ee-9e11-e77d3456517e" class="image"><a href="FiveFold_Pattern_3/image44.png"><img style="width:700px" src="FiveFold_Pattern_3/image44.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ca-8dd6-c510fa2c3788" class="">. ( )</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8118-9f49-c6e978faf242" class="image"><a href="FiveFold_Pattern_3/image45.png"><img style="width:700px" src="FiveFold_Pattern_3/image45.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c6-adc0-f073d08d2620" class="">37</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8113-aeb3-ce657bc516cf" class="">Some might think that the difference is small and it would not make much</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8134-9bfa-c382a1886f35" class="">difference, but this is not true. The pattern in this page is a variation of the first</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8131-a1d4-f4bdfaf786cd" class="">pattern based on the same layout. All similar shapes are identical.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b8-948b-fe1e5de857b3" class="">.قد يقول البعض ان الفرق صغير وال يؤثر كثيرا. ولكن ھذا ليس صحيحاالتركيب في ھذه الصفحة ھو استنباط من التركيب االول وھو مبني على نفس القاعدة تماما. ونالحظ فيه ان جميع االشكال المتشابھة تتطابق تماما مع بعضھا البعض.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8168-b60c-fa22134ce449" class="image"><a href="FiveFold_Pattern_3/image47.png"><img style="width:700px" src="FiveFold_Pattern_3/image47.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8133-8e09-ccf18d2a1cb3" class="">38</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812c-be3d-e78db4769378" class="">If we try to construct the same pattern from the previous page using Mr. Wade&#x27;s layout, the result is a flawed shapes. Some of the petals are clearly deformed.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-818f-aaaf-f2565a95c182" class="">اما اذا حاولنا رسم التركيب في الصفحة السابقة اعتمادا على قاعدة السيدويد فان النتيجة ھي تركيب فيه اخطاء.اذ ان بعض الوريقات في التركيب مشوھة.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81ce-b99a-f9b925176691" class="image"><a href="FiveFold_Pattern_3/image48.png"><img style="width:700px" src="FiveFold_Pattern_3/image48.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-814e-85bb-d7a56d30bbe8" class="">39</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8158-93b0-e8e57aad843b" class="image"><a href="FiveFold_Pattern_3/image49.png"><img style="width:700px" src="FiveFold_Pattern_3/image49.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8114-b35c-d652ae6edeca" class="">40</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,710 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>box_from_Doha_Museum </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2daac165-e88d-817d-bf24-c5cd19606518" class="page sans"><header><h1 class="page-title" dir="auto">box_from_Doha_Museum </h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2daac165-e88d-8165-97c6-ccee477311c8" class="">Start by construct a square as illustrated in the file below: <span style="border-bottom:0.05em solid">https://www.facebook.com/groups/zakhrafa.school/214606662422512/</span></p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e1-a796-ee7c2d621f0d" class="">ارسم مربع كما ھو موضح في الفايل ادناه<span style="border-bottom:0.05em solid">https://www.facebook.com/groups/zakhrafa.school/214606662422512/</span></p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-814e-a657-d02fa4b7953f" class="image"><a href="box_from_Doha_Museum/image1.png"><img style="width:700px" src="box_from_Doha_Museum/image1.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817c-8b39-e1b34136d74c" class="">1</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-815f-b19f-cb98612fa7b6" class="image"><a href="box_from_Doha_Museum/image2.png"><img style="width:700px" src="box_from_Doha_Museum/image2.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a6-8de5-e75e102a5ec0" class="">2</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f8-af0b-d825822de7bf" class="image"><a href="box_from_Doha_Museum/image3.png"><img style="width:700px" src="box_from_Doha_Museum/image3.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8132-952e-fbe4b2361152" class="">ن ق</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d4-a97e-c3bfc7c7b049" class="">R</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8100-84fe-fff97d8f6c88" class="">3</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-814b-a300-ed94eb3f411d" class="image"><a href="box_from_Doha_Museum/image4.png"><img style="width:700px" src="box_from_Doha_Museum/image4.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f3-aef2-c0a0a89ea1da" class="">4</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81cc-9e91-e920c9ba5f5d" class="image"><a href="box_from_Doha_Museum/image5.png"><img style="width:700px" src="box_from_Doha_Museum/image5.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817a-bff4-f028e15857a4" class="">5</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f4-a4d7-d0c0699607ed" class="image"><a href="box_from_Doha_Museum/image6.png"><img style="width:700px" src="box_from_Doha_Museum/image6.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a3-9369-c3a6cb636eb0" class="">ن ق</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c9-8f0b-c6175e939f20" class="">R</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81cb-9de7-e34278c6a607" class="">6</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81d4-bafb-e041ceb15a74" class="image"><a href="box_from_Doha_Museum/image7.png"><img style="width:700px" src="box_from_Doha_Museum/image7.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ea-8a0b-d9948d6aba3c" class="">7</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-813b-b2cc-c358b7cecac1" class="image"><a href="box_from_Doha_Museum/image8.png"><img style="width:700px" src="box_from_Doha_Museum/image8.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8137-bea2-f38cf76b390b" class="">8</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-816f-bee9-c46bd67c537e" class="image"><a href="box_from_Doha_Museum/image9.png"><img style="width:700px" src="box_from_Doha_Museum/image9.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8132-ad28-e896d9f6d4c2" class="">9</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81bf-82b2-f6599728085e" class="image"><a href="box_from_Doha_Museum/image10.png"><img style="width:700px" src="box_from_Doha_Museum/image10.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8154-a6e8-f74a27bf94ba" class="">10</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f6-a2bb-c2c25fff4141" class="">This pattern can be tessellated in several ways.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8132-a26e-c2ccd4718f15" class="">1. By displacement.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8150-8699-f01af3f42068" class="">يمكن تكرار ھذا التركيب بعدة اساليب.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-810e-86bc-f79bd9a5d0c3" class="">. بواسطة االزاحة.1</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8187-8272-dbe97ed603a4" class="image"><a href="box_from_Doha_Museum/image11.png"><img style="width:700px" src="box_from_Doha_Museum/image11.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c8-82a3-cf47e14d1a1c" class="">11</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8104-bdaa-c150a97f7455" class="image"><a href="box_from_Doha_Museum/image12.png"><img style="width:700px" src="box_from_Doha_Museum/image12.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8160-869f-e2e1c93dd61c" class="">12</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81dd-a3eb-db41ed713209" class="image"><a href="box_from_Doha_Museum/image13.png"><img style="width:700px" src="box_from_Doha_Museum/image13.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8141-a4dc-f0d9fc2a76b4" class="">13</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8155-80dc-ea616cab700e" class="image"><a href="box_from_Doha_Museum/image14.png"><img style="width:700px" src="box_from_Doha_Museum/image14.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8192-bfb3-daca918556f4" class="">14</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8133-8cf2-e0333a2a2ae9" class="">2. By mirroring the pattern along vertical and horizontal axis.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8154-b5b3-c254f7c4ef44" class="">. بواسطة عكس التركيب على2 .محور عمودي وافقي</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8129-9dd1-e63ba0bc92eb" class="image"><a href="box_from_Doha_Museum/image15.png"><img style="width:700px" src="box_from_Doha_Museum/image15.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817d-8df7-c221cb2ec249" class="">15</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81be-b2a7-ec7711fe555c" class="image"><a href="box_from_Doha_Museum/image16.png"><img style="width:700px" src="box_from_Doha_Museum/image16.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8167-b59f-f86a9d168d0e" class="">16</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f1-aec0-e411a93419f9" class="image"><a href="box_from_Doha_Museum/image17.png"><img style="width:700px" src="box_from_Doha_Museum/image17.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a9-aae8-eb466d7b7120" class="">17</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81be-81db-c7d7849ec0bb" class="image"><a href="box_from_Doha_Museum/image18.png"><img style="width:700px" src="box_from_Doha_Museum/image18.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813f-852c-f0d6e05a5b66" class="">18</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d0-82be-fa084f390b57" class="">3. By mirroring and rotating the pattern by 90 degrees.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816e-bab5-f00bd76d8c29" class="">. بواسطة عكس وتدويرالتركيب3 . درجة90 بزاوية</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81f0-8412-ed81b6c69273" class="image"><a href="box_from_Doha_Museum/image19.png"><img style="width:700px" src="box_from_Doha_Museum/image19.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8167-9070-fefb44b194b4" class="">19</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-810b-ad57-fd2a06c32e32" class="image"><a href="box_from_Doha_Museum/image20.png"><img style="width:700px" src="box_from_Doha_Museum/image20.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8135-a013-eb86f52719c1" class="">20</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8147-a713-eb04ab294256" class="image"><a href="box_from_Doha_Museum/image21.png"><img style="width:700px" src="box_from_Doha_Museum/image21.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8193-bb17-ca5b0d5099c2" class="">21</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8143-99ad-f3f749508b35" class="image"><a href="box_from_Doha_Museum/image22.png"><img style="width:700px" src="box_from_Doha_Museum/image22.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8134-82ad-d69ace1cf942" class="">22</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8172-b8fa-e7711d0fdb25" class="">4. By mirroring and rotating the pattern by 180 degrees.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8117-a00b-f72f11ca5d2f" class="">. بواسطة عكس وتدويرالتركيب4 . درجة180 بزاوية</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-812f-a4c6-ca43fc9cfc9e" class="image"><a href="box_from_Doha_Museum/image23.png"><img style="width:700px" src="box_from_Doha_Museum/image23.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81eb-9b5f-fffe6861a0e5" class="">23</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81ad-98a6-d2a9fc65c847" class="image"><a href="box_from_Doha_Museum/image24.png"><img style="width:700px" src="box_from_Doha_Museum/image24.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f3-937d-c100825eb8a2" class="">24</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8173-b6d2-ed2047fd9556" class="image"><a href="box_from_Doha_Museum/image25.png"><img style="width:700px" src="box_from_Doha_Museum/image25.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8138-b891-fd54cfc1d9a2" class="">25</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8196-815f-e8fb06d7a28b" class="image"><a href="box_from_Doha_Museum/image26.png"><img style="width:700px" src="box_from_Doha_Museum/image26.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b8-a383-cdb4b00a695e" class="">26</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

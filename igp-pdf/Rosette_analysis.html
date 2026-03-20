@@ -1,0 +1,710 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Rosette_analysis</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2daac165-e88d-81f5-8841-ea49ec166a0f" class="page sans"><header><h1 class="page-title" dir="auto">Rosette_analysis</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2daac165-e88d-8111-b738-c05832d552f7" class=""><strong>The Geometric Rosette : analysis of an Islamic decorative motif</strong>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8157-9ec0-d59632e9f97b" class="">Tony Lee &amp; Ayman Soliman</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c2-b533-e3e3e8b0039b" class="">August/September, 2014</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-815d-bcad-d906139af83d" class=""><strong>1</strong>. Among the many different star-like motifs used in the geometrical art of Islam, there is one which stands out as distinctively &quot;Islamic&quot; (see fig. 1). We shall call this motif a <em>geometric rosette</em>, since it resembles a flower or rosette, with an outer ring formed by a variable number of &quot;petals&quot; encircling a central star. One possible interpretation of the formal, if not historical, origin of the geometric rosette allows us to develop a consistent, geometrical analysis of both the isolated motif itself and its use in a variety of repeating patterns. This interpretation is based on authentic examples of geometric patterns throughout Islam, although not every authentic pattern conforms to our particular notion of how an Islamic pattern should be constructed.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81e3-86b8-caf7652fbba3" class="image"><a href="Rosette_analysis/image1.png"><img style="width:700px" src="Rosette_analysis/image1.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8170-856a-d100a63cf02a" class="">Fig. 1. Three main types of geometric rosette : A - a divergent 9-rosette; B - a parallel 10-rosette; C - a convergent 11-rosette.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8102-8d9f-ca0fb313638b" class="">Referring to fig. 1, we recognize three common types of simple rosettes, depending on whether the sides of the petals (thicker lines in fig. 1) <em>diverge</em> towards the periphery (fig. 1A); are <em>parallel</em> (fig. 1B); or <em>converge</em> towards the periphery (fig. 1C). The three types may be termed <em>divergent</em>-, <em>parallel</em>- or <em>convergent-sided</em>, respectively, or, if there is no ambiguity, then shortened forms may be used, as in the legend to fig. 1. In general, we refer to a rosette with N petals as an N-rosette (short for &quot;N-rayed&quot; or &quot;N-petalled&quot; rosette). Note that the petals in a simple rosette, as shown in fig. 1, are hexagons, in most cases with a single axis of symmetry. The outer point of each petal - marked by a red dot - lies on the circumcircle of the rosette, shown in red.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b7-8478-eb3b7685bd4c" class="">One characteristic feature of Islamic geometric patterns in general is illustrated in the drawings of fig. 1, and this concerns the manner in which pattern lines cross one another. Usually four lines meet at every crossover point or <em>node</em>, in such a way that opposite angles at the node are equal. This means that every crossover may be regarded as a pair of straight lines intersecting each other at an angle. Patterns which follow this &quot;rule&quot; are sometimes referred to as true <em>interlacing patterns</em>, since the pattern lines can be replaced by interlacing bands which interweave over and under one another. Occasionally patterns may be encountered in which opposite angles at some nodes or are not equal. This usually leaves a discontinuity or &quot;kink&quot; in the otherwise smooth interlacing through that node. Thus, a true interlacing pattern consists entirely of 4-way nodes, but there are many geometric patterns which contain at least some</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8158-8131-fb0e18510631" class="">nodes which are not 4-way. Since this is not a general essay about Islamic geometric patterns, we may leave these aside, other than to mention that nodes with an odd count cannot form part of a true interlacing pattern.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81b4-a260-f9560cb47abb" class="image"><a href="Rosette_analysis/image2.png"><img style="width:344px" src="Rosette_analysis/image2.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8115-9d1d-fad6f0bcb2cc" class="image"><a href="Rosette_analysis/image3.png"><img style="width:700px" src="Rosette_analysis/image3.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8108-ac82-e13e5941e9d8" class="">Fig. 2. Illustrating the stellation process for geometric rosettes. A - a simple, parallel-sided 12-rosette; B - a 1-stellate rosette. C - a 2-stellate 12-rosette.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8122-a5e2-e4ecd6e65469" class="">One other important development from the simple rosettes in fig. 1 is that of extending certain pairs of non-adjacent sides outwards until they meet at some distance from the boundary of the rosette. We refer to this process as <em>stellation</em>, from the similarly-named process producing star polygons and star polyhedra from polygons and polyhedra, respectively. This is shown in fig. 2 for a parallel 12-rosette. The simple rosette (fig. 2A) has a vertex angle of 150°, whereas the 1-stellate variety (fig. 2B) has a vertex angle of 120°. The vertex angle in the 2-stellate variety (fig. 2C) is a right angle. Examination of this last figure shows that two further stellations are possible, but a fifth stellation is not possible, since the extended lines would be parallel and could therefore never meet. 1-stellate rosettes are the most common variety in authentic Islamic patterns, but 2- and occcasionally 3-stellate varieties do occur.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819b-959c-e2756647713f" class=""><strong>2. The structure and genesis of a &quot;standard&quot; construction</strong>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8129-8aab-d87fe218cc8b" class="">The simple geometric rosette, and its stellated varieties so far described, has come to be regarded as a complete motif in its own right, although seen in this light it may seem to have been somewhat arbitrarily put together, almost as a geometric imitation of a flower. However, <em>geometrically</em> at least, it is possible to justify its peculiar properties by means of a sequence of logical steps, which may possibly throw some light on the methods used to draw the first geometric rosettes by the early Muslim artisans, although it is not our aim here to investigate the history of authentic drawing practices.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b9-a24d-faa805074e70" class="">The earliest geometric rosette may have been the 6-fold case, derived from the pattern of 6-stars shown in fig. 3. This pattern was one the earliest to appear in an Islamic context, but had been used previously in Greek and Roman ornament. Each star is surrounded by six regular hexagons, but each hexagon is shared between three 6-stars. The configuration of central 6-star with its surrounding hexagons could be seen as a prototype geometric rosette (fig. 4), but the first use of the resulting 6-fold rosette as a separate motif occurred towards the end of the tenth century, as a panel of incised stucco at the Arab-Ata mausoleum at Tim, in Uzbekistan (fig. 5).</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8141-aee8-f78bb8e7f593" class="image"><a href="Rosette_analysis/image4.png"><img style="width:700px" src="Rosette_analysis/image4.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8181-8d54-ff61c0df4615" class="">Fig. 3. A common pattern of 6-stars on the vertices of the tiling of equilateral triangles. Each 6-star is surrounded by six regular hexagons, and the combination of central 6-star and accompanying hexagons forms a kind of prototypical geometric rosette.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8198-a73c-ea690cac45f6" class="image"><a href="Rosette_analysis/image5.png"><img style="width:700px" src="Rosette_analysis/image5.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e0-8f67-c5abc13a3733" class="">Fig. 4. A 6-rosette is centred at A, with peripheral stars at B, C. Equal tangent circles at B, C determine the radius of a circle at A. In this case all three circles have the same radius.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81d6-ad93-c0d7818d2ad9" class="image"><a href="Rosette_analysis/image6.png"><img style="width:700px" src="Rosette_analysis/image6.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8112-9a3e-cfaec8d0609b" class="">Fig. 5. An example of a late 10th-century pattern using the prototypical 6-rosette as a discrete motif. Compare fig. 3. The diagram shows a fragment of a pattern on a tympanum in the Arab Ata mausoleum at Tim, in Uzbekistan (1).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8149-843c-c8992c147fb7" class="">The diagram in fig. 4 can easily be generalized. We have an isosceles triangle ABC, with base BC, equal angles at B, C, and summit at A, and with angle BAC equal to 360°/N, where N is the number of points in the star centred on A. We bisect each of the angles at B, C and A, so that the three bisectors meet at the incentre D of the triangle. Circles are drawn at B and C, with a radius of BC/2. This radius determines the radius of the central N-star at A, which our construction ensures will always be a regular N-star. However, the <em>peripheral stars</em> centred on B and C cannot be assumed to be always regular stars, since this possibility will depend on the size of the equal angles ABC and CBA. The interesting question here is, what values for N will result in regular stars at B and C?</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c0-a023-fd48e3a526c9" class="">In fact, it turns out that there are only four finite, positive integral solutions possible. If we represent the number of points in the peripheral stars at B, C by <em>p</em>, and the number of points in the central star at A by <em>n</em>, possible (<em>p</em>, <em>n</em>) pairs are (12, 3), (8, 4), (6, 6) and (5, 10). In addition, to complete the sequence there are two &quot;points at infinity&quot; - (∞, 2) and (4, ∞). All four finite pairs of values have been incorporated in authentic Islamic patterns. Of the infinite pairs, (4, ∞) can be realized as a pattern of sorts, with the circumference of the <em>n</em>-circle represented as a straight line, and an infinite row of peripheral 4-circles. Examples of the four finite solutions are illustrated in fig. 6, together with the pair (4, ∞). We note that when N &lt; 6 the peripheral stars are larger than the central star. The polygon centred on the incentre of the triangle ABC, that is, on point D in fig. 4, is always a hexagon, but can only be regular when N = 6.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-815d-9455-db1e60379799" class="image"><a href="Rosette_analysis/image7.png"><img style="width:700px" src="Rosette_analysis/image7.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d7-9689-f19041fa30e9" class="">Fig. 6. Generalizing fig. 4, this shows the four finite, positive integral solutions for surrounding a regular central N-star with N regular peripheral stars. Also shown is a realization of the pair (4, ∞).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8162-9743-cf2e38a0972b" class="">This hexagon represents one &quot;petal&quot;, which, when repeated N times round centre A will form a complete geometrical N-rosette. However, this initial attempt at generalizing fig. 4 does not lead to much variety: it produces rosettes in a limited sequence with 3, 4, 6 or 10 petals, and only those with 6 and 10 petals resemble the traditional Islamic geometric rosette. We must therefore introduce further generalization by relaxing some of our initial requirements. The rosette as a whole must be regularly formed, that is, the centres of the peripheral stars must be on the vertices of regular polygons, and the central star must be a regular, or equiangular star, but we shall not necessarily require that the peripheral stars should be regular. We shall, however, require that both peripheral and central stars are circle-inscribed.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816a-8fb7-fbc29fc3fd68" class="">A construction showing this generalization is illustrated in fig. 7A. This is based on the same isosceles triangle ABC, with circles on B, C tangent at E, the midpoint of BC. Point F is on side AC, so that radius CE equals radius CF. CD is the bisector of angle ECF. Point D is the incentre of the isosceles triangle ABC, and, as shown in the detailed diagram in fig. 7B, is also a vertex of an inner N-gon, the sides of which pass through points F, which is at the midpoint of the side of the inner N-gon. Note that points such as C, E, D and F form the vertices of a kite in which CE = CF and DE = DF.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8193-bbf4-d7262f255746" class="">If G is the &quot;shoulder&quot; point of the rosette petal, and angle CEG = angle CFG, it is easy to show that EG = FG and point G lies on the bisector CD of angle FCE. This means that whatever the crossover angle at E and F point G will always lie on the bisector, which thus acts as a slide for shoulder point G. Similarly, point H, the inner point of the rosette petal, will slide along radius AE as the crossover angle through E, F varies. Note that as a result of this special construction points E and F remain fixed, whatever the crossover angle. We shall refer to this construction as the <em>standard construction</em> for geometric rosettes.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8171-b8c3-e313676508a8" class="image"><a href="Rosette_analysis/image8.png"><img style="width:700px" src="Rosette_analysis/image8.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8165-b38f-f32f8799625b" class="">Fig. 7A. A generalized geometric rosette, following fig. 4, with the same isosceles triangle ABC, with base BC and summit A. Repetition of BC round A, N times, creates a regular N-gon. Equal circles on B and C, tangent at E, determine the radius AF of a circle on A. Fig. 7B (below) detail of part of the diagram above.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-817b-8516-d08a317684ef" class="image"><a href="Rosette_analysis/image9.png"><img style="width:700px" src="Rosette_analysis/image9.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8182-907d-cf3fc6301346" class="">The main characteristics of the &quot;standard&quot; construction may be summarized as follows, by reference to figs. 7A and 7B.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81da-8ef4-fbb1ed664db2" class="">1. The vertices E and F of the peripheral stars lie on the circumference of the peripheral circles, with radius CE = CF, which is half the edge length of a regular N-gon with vertices B, C and centre A. Points B, C are the centres of the peripheral circles.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-814a-9ce8-eaf89229c928" class="">2. To ensure that the peripheral star is as nearly regular as possible, we start by making the two crossover angles through E and F equal. This crossover angle may be arbitrarily chosen.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81aa-b1d9-fb85fd0f8c2e" class="">3. Equality of angles CEG and CFG ensures that the shoulder point G always lies on the bisector CD of angle ECF. The value of angle ECF is 90° - 180°/N, where N is the number of petals in the rosette.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fa-8612-da2361a4a6e8" class="">4. It can also easily be demonstrated that the <em>terminal segment</em> EG of the rosette petal is the same length as the <em>subterminal segment</em> FG.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ce-8832-c828f702b8ef" class="">5. Point D is the centre of the rosette petal, as the point of coincidence of all the angle bisectors of the petal.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8146-b2df-c29b8d034252" class="">6. Point F is a vertex of the inner component star of the rosette (or better termed the <em>mid-star</em>, if there is at least one other star inside it, forming a <em>central star,</em> as in fig. 7A).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8194-8e14-dcce8593083c" class="">7. The position of point H along radius ADE is determined by the size of the crossover angle CEG = CFG; a smaller angle will move H towards centre point A, while a larger angle will move H outwards, towards D.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-818b-9e1e-facb74219455" class="">8. Thus, the metrical properties of a &quot;standard&quot; geometrical rosette are fully determined by the choice of a value for N, and one other parameter, e.g. the crossover angle <em>a</em>. In fact, given such an initial angle, all other angles can be expressed in terms of angel <em>a</em>, by means of generalized algebraic formulae.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8192-933a-f030c925d4f6" class="">The structure of the peripheral stars in fig. 7A, B is necessarily left incomplete, until we know how the overall pattern will continue beyond the boundary of the initial rosette. If the first rosette is simply joined to another, identical rosette, then the pattern can be locally mirrored across line BC, and points B, C will be shared by both circumscribing or <em>limiting N-gons</em>. If a pair of peripheral stars has to be shared between two adjacent geometrical rosettes which are in contact at a shared vertex (point E in fig. 7) then, whether the rosettes are identical or they have different numbers of petals, each peripheral star should have a single centre, coinciding with points B or C. By this means we can ensure that the peripheral can be drawn to look as regular as possible, even if a completely regular star is not mathematically possible.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e4-8805-c243f32ce3d0" class="">It is obvious that if a pattern contains two different geometrical rosettes, both constructed using the &quot;standard&quot; method, then the most logical means of joining them is by sharing an edge between their respective circumscribing regular polygons - also termed &quot;limiting polygons&quot; (2). This type of underlying scaffolding was noticed by E.H. Hankin (3, 4) as a means of drawing Islamic star patterns with the correct proportional sizes of rosettes. Hankin did not formally name any of his suggested means of drawing Islamic star patterns, but A.J. Lee (2), borrowing a phrase of Hankin&#x27;s, referred to the shared edge method as the &quot;Polygons-In-Contact&quot; method,</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f0-bcf1-e197f10d731a" class="">and gave it the acronym PIC. It will be noticed that the standard method, as outlined here, is a compound method, incorporating Lee&#x27;s original PIC method - which uses the circumscribing polygons with vertices B, C as its &quot;polygons in contact&quot; - and also a system of inner polygons, with vertices D and midedge points F. The two are linked by a set of struts (BD, CD in fig. 7B) which are the kite bisectors already referred to.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d0-911c-ead1f17a64af" class=""><strong>3. The Geometric Rosette as a Compound Motif</strong>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81da-8d72-ca7f606dc23d" class="">Islamic geometric art is above all concerned with combinations of star-like motifs ultimately derived from star polygons. At its simplest, a star polygon is a polygon in which the sides intersect one another other than at their end points:</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-810f-a1e6-e1667b6a912a" class="image"><a href="Rosette_analysis/image10.png"><img style="width:700px" src="Rosette_analysis/image10.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8149-9a97-c2d562be17bb" class="image"><a href="Rosette_analysis/image11.png"><img style="width:700px" src="Rosette_analysis/image11.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-819d-adc3-ea011a9c96a7" class="">Fig. 8. Illustrating polygons, star polygons, compounds and Islamic star motifs.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8136-a4c7-d21cc4b59a5c" class="">Fig. 8A shows a simple convex polygon in which adjacent vertices are joined by straight lines. If, however, we join every other vertex, or every third vertex by straight lines, as in fig. 8B and 8D respectively, we usually obtain a true star polygon, in which the edges still form a single circuit round the centre of the figure - although the circuit now turns round the centre more than once before returning to the starting point. A mathematical notation for such star polygons is {<em>n</em>/<em>d</em>}, where <em>n</em> is the number of vertices, and <em>d</em> represents first, both the manner in which vertices are joined by straight lines (if every second vertex is joined, then <em>d</em>=2, or if every third vertex <em>d</em>=3, and so on), and secondly, the number of times the circuit of the edges turns round the centre before returning to the initial point. The notation for fig. 8A is thus {7}, since here <em>d</em>=1 and is therefore ignored; for fig. 8B it is {7/2}, and for fig. 8D {8/3}. In fig. 8C the notation would be {8/2}, but in this case because <em>n</em> and <em>d</em> are not here coprime the figure reduces to two {4/1} overlapping, i.e. we have a regular compound of two squares, rather than a true star polygon. Note also that fig. 8F consists of two overlapping 4-stars, and is thus topologically similar to fig. 8C.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-818c-9984-d764d2d86b2a" class="">Islamic star motifs are rarely drawn as star polygons or regular compounds in repeating</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ed-ba67-ee9cbf34271d" class="">star patterns, but true star polygons do occasionally appear as single medallions. Usually, one or more of the individual line segments produced by the self-intersection of the edges of a star polygon are omitted, as in fig. 8E, F. We can label the number of segments <em>remaining</em> at each end of an edge by <em>s</em>, and the complete notation could then become {<em>n</em>/<em>d</em>}<em>s</em>. The star motif in fig. 8E is thus {8/3}1, and that in fig. 8F is {8/3}2. The problem with this kind of notation is that the value of <em>d</em> is not necessarily always a simple whole number in authentic Islamic patterns, so in order to label each and every star motif we would have to admit non-integral values for some <em>d</em>. This difficulty will surface again later, when we attempt to give a concise notation for a complete geometrical rosette.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8143-8caf-e9c99fb132d1" class="">A geometrical rosette with N petals is a combination of two kinds of star motifs - an outer ring of N peripheral stars, surrounding and linked to a single inner star in which the value of <em>s</em> may be 1, 2 or 3, but most commonly <em>s</em> = 2. The rosette may therefore be formally regarded as a <em>compound motif</em> (see fig. 9), but whether this interpretation might also explain its historical origin is uncertain. A key factor in the generation of a geometrical rosette is the rotation of the isosceles triangle ABC (fig. 7A) N times round its summit A. The internal angles of the isosceles triangle are bisected, and star motifs are centred on each vertex, with their points lined along the edge of the triangle. This automatically creates a hexagonal polygon round the centre of the triangle - which will become a &quot;petal&quot; of the completed flower-like rosette.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8197-a6b9-fba158ec18e5" class="image"><a href="Rosette_analysis/image12.png"><img style="width:700px" src="Rosette_analysis/image12.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8115-b381-e89c4a1814d1" class="">Fig. 9. A dual interpretation of a geometric rosette : (<em>a</em>) as a simple motif formed by repetition of triangle ABC ten times round the centre; or (<em>b</em>) as a compound motif of ten peripheral 5-stars surrounding a central 10-star, formed by similar repetition of sector ADEF.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81a7-b1e3-e908b02c96ae" class=""><strong>4. The &quot;Standard&quot; Constructionin Authentic Patterns</strong>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811e-ae61-cc10fb95be54" class="">The term &quot;construction&quot; here refers to the end result of a means of construction, rather than to the methods used in attaining that end result, since in many cases we have no idea of the means used to produce the exact proportions in an authentic Islamic pattern. However, if an authentic pattern agrees very closely with the proportions obtained when using our &quot;standard&quot; method of construction we can be fairly certain that similar drawing methods were used by the original artisans when producing their pattern. There is in fact a very sensitive test of this which does not depend on making precise measurement of angles or lengths on an actual artifact.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8174-ae3a-e2415d96941a" class="image"><a href="Rosette_analysis/image13.png"><img style="width:700px" src="Rosette_analysis/image13.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bb-bcc4-c41ef628708f" class="">Fig. 10. Minimal rectangle of a p6m pattern with 1-stellate 12-rosettes on hexads, hexagons on triads, and interstitial heptagons. If constructed according to the standard method the regular or nearly-regular heptagons force divergent-sided rosettes.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b5-833f-cc4ea2c4ee19" class="">In figs. 10 and 11, constructed according to the standard method described above, the heptagons linked to the stellate 12-rosettes transfer their vertex angle to that of the rosettes. This inevitably results in the petals of the inner rosettes having divergent sides. Similarly, the 8-rosettes will have slightly convergent-sided petals. Both patterns occur as authentic examples on wooden minbars from the Mamluk period in Cairo - the first from the Abd al-Ghani al-Fakhri mosque, and the second as the main pattern on the side of the minbar in the Sultan Mu&#x27;ayyad mosque. Interestingly, both show the same proportions as the drawings in figs. 10 and 11, in particular the presence of 12-rosettes with slightly divergent petals. A clear photo of</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8131-81b9-c49b35ad42c9" class="image"><a href="Rosette_analysis/image14.png"><img style="width:700px" src="Rosette_analysis/image14.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8152-ae25-c704d4dcb4f2" class="">Fig. 11. Fragment of a p4m pattern of stellate 12-rosettes and 8-rosettes, with interstitial heptagons. As in fig. 10, the presence of regular or nearly-regular heptagons forces the types of rosettes, here a divergent 12 and a convergent 8.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8158-82be-f5c454c69f8e" class="">the latter is provided by Wade (5, image egy_1221), in which the divergent-sided 12-rosettes can be clearly seen.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811e-bad9-c467c07e4f0b" class="">Divergent-sided rosettes are unusual in Islamic patterns, but when they do occur they can usually be explained as the automatic consequence of local geometry, as in the two examples just quoted. They are seldom the result of arbitrarily applied artistic whim. The artisans working in Medieval Egypt, especially those producing inlaid wooden artifacts such as doors, minbars and kursis, seem to have closely followed strictly geometrical methods of construction, with results, if not practices, virtually identical to those given by the &quot;standard&quot; methods of drawing outlined here. The frequent presence of divergent-sided rosettes is difficult to explain, unless it is the direct result of following some methodology similar to our standard construction, which is thus, as suggested, probably a sensitive indicator of underlying drawing methods. Similarly, if the particular types of rosettes found in authentic material can be readily explained as the direct result of the application of geometrical methods to pattern construction, then this is a clear indication that some such methods were probably used by the original artisans. It is perhaps important to point out that in making this assertion we are not advocating the possession of advanced mathematical knowledge on the part of these craftsmen, merely a sophisticated ability to apply their skills in geometrical drawing to the design and execution of quite complex geometrical patterns. In fact, very little mathematical knowledge, if any, properly speaking, is required to draw even the most complicated Islamic patterns.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8134-b12c-dd51d0a39a59" class="">If we consider a 1-stellate <em>n</em>-rosette linked to <em>np</em>-gons on its vertices then it is easy to show that there is a simple relationship between the values <em>n</em>, <em>p</em> and the type of inner rosette - i.e. divergent, parallel or convergent, assuming that the rosettes are constructed according to the standard method. If <em>n</em> = 2<em>p</em> the rosette will be parallel-sided; if <em>n</em> &lt; 2<em>p</em> the rosette will be divergent-sided; and if <em>n</em> &gt; 2<em>p</em> the rosette will be convergent-sided. Thus, a 1-stellate 14-rosette linked to regular heptagons becomes parallel-sided, as does a 1-stellate 10-rosette linked to regular pentagons, both of which occur frequently in patterns from Medieval Cairo and elsewhere. Such associations, when they occur are good indications that the original methods of construction were at least similar to those of the standard method described here.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8171-9e4e-cf5cff189fb0" class="">As stated already, by no means all Islamic patterns can be said to agree with the strict rules of proportion resulting from the standard method. For example, many regions seem to have had a preference for parallel-sided rosettes, and these seem to have been used almost exclusively in traditional Moroccan patterns, which frame panels with a border of petal widths, rather than allowing local mirror axes to coincide with the definitive edges of a panel, as occurs almost universally in the rest of Islam. In patterns containing two kinds of rosettes, that is, rosettes with different numbers of petals, if rules similar to the standard construction are used this will result in one rosette influencing the type of another rosette to which it is linked. For example, a fairly common rosette pattern contains rosettes with 9 and 12 petals. If the 9-rosette is drawn with parallel-sided petals then the 12-rosette will have convergent petals. If, on the other hand, the 12-rosette is drawn with parallel-sided petals then the 9-rosette will have divergent-sided petals. In both cases, a standard construction would result in a pair of interstitial &quot;petals&quot; identical to those of the 9-rosettes. It is possible to draw this pattern with both kinds of rosettes parallel-sided, but in this case we can conclude that a standard construction was not used, even though the relative sizes of the two kinds of rosette may have been correctly drawn according to a PIC method - which becomes automatically incorporated as part of the standard construction.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8140-9461-cf3f8212bb4a" class=""><strong>5. A New Notation and Method of Drawing Geometric Rosettes</strong>.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8122-b34b-ccd750f36678" class="image"><a href="Rosette_analysis/image15.png"><img style="width:700px" src="Rosette_analysis/image15.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8137-8044-e43f54ef4722" class="">Fig. 12. A regular 12-star has sides which slope at a certain angle. Here, the slope is obtained by joining every other point on the circumference of its bounding circle.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ba-a02f-e09c67aaf7fe" class="">The star may therefore be given an index of 2. As an isolated motif it would have the symbol {12/2}1.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8130-80ab-f9cea1fabf9c" class="">We have already noted a convenient notation for isolated star motifs, based on joining selected, numbered points on the circumference of a circle - fig. 12. If these points coincide with definitive vertices of the star then the resulting index for that star will always be an integer. In the case of the star illustrated in fig. 12 there are twelve points, and the star is drawn by joining every other point, for example 0-2, 1-3, 2-4 and so on, so we have an index of 2. A geometrical rosette may be interpreted as based on a nested series of concentric stars, as shown in fig. 13.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81dc-88c8-fad693d4f8b0" class="image"><a href="Rosette_analysis/image16.png"><img style="width:700px" src="Rosette_analysis/image16.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b8-807c-c80ef2600cc5" class="">Fig. 13. A geometric rosette, here a 1-stellate parallel-sided 10-rosette, seen as a nested sequence of concentric stars, each with its individual circumcircle. From the periphery these are labelled <em>x</em> (thin red circle), <em>w</em>, <em>y</em> (thick red circle) and <em>z1</em> (black dotted circle), <em>z2</em> (thin blue circle). Note that circles w and y coincide. A general notation for this kind of rosette would be N(<em>x</em> - <em>w</em>:<em>y</em> - <em>z1, z2</em>) but for an actual rosette letters will be replaced by numbers giving the slopes of the sides of each star. In the present case the full index is 10(2 - 1:3 - 4, 3).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81bc-814d-cb33d3d58866" class="">In the notation for star N-gons the <em>d</em>-values are based on angular divisions through the star&#x27;s vertices of 360°/N. In the case of the multiple stars constituting the geometric rosette, successive stars are usually offset by 360°/2N compared to the ones above and below. This suggests that values for individual stars constituting a geometric rosette might be based on 360°/2N divisions. On this basis the initial notation suggested for the 10-rosette in fig. 13 would have its star indices doubled: 10*2(4 - 2:6 - 8, 6). The general notation for a 1-stellate</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8158-86da-fb3d8162bb3e" class="">rosette without a central star would thus be N*<em>m</em>(<em>x1</em> - <em>w</em>:<em>y</em> - <em>z1</em>), based on angular divisions of 360°/N*<em>m</em>. The multiplying factor <em>m</em> is necessary as a reminder that angular divisions of 360°/ N*<em>m</em> are being used, rather than the 360°/N which is more appropriate for a star polygon.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-817a-bd42-e3bda477d133" class="">We may apply names to the various stars making up a geometric rosette. Thus, <em>x1</em>, <em>x2</em> are the first and second <em>stellation stars</em>; <em>w</em> is the <em>terminal star</em>, since it defines the slope of the terminal segments of the rosette petals; <em>y</em> is the <em>fixed star</em> - in a standard geometric rosette its convex and re-entrant points are the fixed points E and F (fig. 7). This means that for any given N-value the <em>y</em>-star retains a constant index whatever the values of the other indices. Finally, <em>z1</em> and <em>z2</em> are the <em>first inner star</em>, and the <em>second inner star</em> or <em>central star</em>, respectively. Authentic geometric rosettes sometimes have a third inner star (<em>z3</em>), especially in the case of a convergent rosette with larger N, in order to reduce the size of the space remaining at the centre of the rosette.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8121-b39e-f676e6221a59" class="">The inner or re-entrant angle of each star defines the location of the convex angle or vertex of the star below it, with the exception of the first stellation star, the re-entrant angle of which defines the vertices of both the terminal (<em>w</em>) and fixed (<em>y</em>) stars. The terminal star is distinctive, in that its re-entrant angle flattens to 180° in the case of a standard parallel-sided rosette; the &quot;star&quot; thus becomes a regular N-gon (<em>cf</em>. fig. 13, <em>w</em>). In the case of a divergent-sided rosette, the &quot;re-entrant&quot; angle of the terminal star is further from the rosette&#x27;s centre than its convex vertex. The <em>x2</em>, <em>x1</em>, <em>z1</em> and <em>z2</em> stars contribute in their entirety to the structure of the definitive rosette, but the fixed or <em>y</em>-star may be erased once the <em>z1</em> and <em>z2</em> stars have been drawn, since its only function is to define the vertices of the <em>z1</em>-star.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b2-8937-d559cb760102" class="">Mathematically it should make no difference whether the indices <em>x</em>, <em>w</em>, <em>y</em> and <em>z</em> are integral or non-integral. A true star polygon will of course always have integral <em>d</em>-values (although it may sometimes be a useful generalization to allow non-integral values for N). However, it turns</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81cb-8f5b-e458622d8293" class="image"><a href="Rosette_analysis/image17.png"><img style="width:700px" src="Rosette_analysis/image17.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ec-87da-eb7331766267" class="">Fig. 14. Calculation of the slope of the side of the <em>y</em>-star (segment EF) in a standard rosette.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8115-8fd7-dc50cba9c2b1" class="">out that not every conceivable standard rosette will have integral indices, which should of course be obvious, since all possible rosettes belong to a continuum of infinitely varying values. This can be demonstrated quite easily however, in the case of the <em>y</em>-star, which, as we</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-816e-88f3-f30dc68f8aab" class="">have seen has a constant slope, and therefore <em>y</em>-value, for each rosette number N. Referring to fig. 14, which shows the construction of the fixed, or y-star, A is the centre of the rosette, B and C the centres of the peripheral stars with radius CE = CF. Points E and F are respectively the vertex and re-entrant angle of the <em>y</em>-star. As fractions of 180° angle CAE = 1/<em>n</em> (using <em>n</em>=N) and angle ACE = (<em>n</em>-2)/2<em>n</em>. Angle DCE (red dot ● ) therefore equals (<em>n</em>-2)/4<em>n</em>, and is also equal to angles DEF and DFE. This is easily demonstrated since the right triangles making up triangles ECF and EDF are similar, which also demonstrates the equality of the angles marked with a blue open dot ( ○ ). This latter angle, say CEF, is equal to 1/2 - (<em>n</em>-2)/4<em>n</em>, which is (<em>n</em>+2)/ 4<em>n</em>. Now, referrring to fig. 14, if twice this angle, or angle EDF, is divisible by angle CAE an integral number of times, then the value of <em>y</em> will be integral. This is equivalent to (<em>n</em>+2)/2<em>n</em> divided by 1/<em>n</em> which is <em>n</em>(<em>n</em>+2)/2<em>n</em>; so if <em>n</em>(<em>n</em>+2)/2<em>n</em> evaluates to an integer then the value of <em>y</em> is also an integer. It so happens that all even <em>n</em> give an integer, and all odd <em>n</em> give a non-integral value. In fact, increasing <em>n</em> by 1 increases the value of <em>n</em>(<em>n</em>+2)/2<em>n</em> by 0.5. We could therefore retain integral <em>y</em>-values for odd <em>n</em> if we increase the value of the multiplying factor to <em>m</em>=4. We would then have general expressions N*2(<em>x</em> - <em>w</em>:<em>y</em> - <em>z</em>) for even N, and N*4(<em>x</em> - <em>w</em>:<em>y</em> - <em>z</em>) for odd N. A few examples of actual rosettes will illustrate the application of this notation, see fig. 15.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-810e-ba58-f159cef432fa" class="image"><a href="Rosette_analysis/image18.png"><img style="width:316px" src="Rosette_analysis/image18.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81b0-8e4f-d2e395408aec" class="image"><a href="Rosette_analysis/image19.png"><img style="width:700px" src="Rosette_analysis/image19.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8177-8c66-ee6048d92f51" class="image"><a href="Rosette_analysis/image20.png"><img style="width:320px" src="Rosette_analysis/image20.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-816b-8826-d615d8a36d83" class="image"><a href="Rosette_analysis/image21.png"><img style="width:316px" src="Rosette_analysis/image21.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-818e-917f-ce7909bcfc3c" class="image"><a href="Rosette_analysis/image22.png"><img style="width:700px" src="Rosette_analysis/image22.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8100-a0d6-f0be2932e685" class="image"><a href="Rosette_analysis/image23.png"><img style="width:308px" src="Rosette_analysis/image23.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-814c-b513-cb3f1106134d" class="image"><a href="Rosette_analysis/image24.png"><img style="width:320px" src="Rosette_analysis/image24.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8163-9920-cdfc2f02ed8c" class="image"><a href="Rosette_analysis/image25.png"><img style="width:700px" src="Rosette_analysis/image25.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8126-8189-ef59ac02de19" class="image"><a href="Rosette_analysis/image26.png"><img style="width:308px" src="Rosette_analysis/image26.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812f-a6c2-fdef6dba781c" class="">Fig. 15. Examples of Divergent-, Parallel- and Convergent-sided geometrical rosettes, with their star indices. The multiplier <em>m</em> is omitted, but is understood to be <em>m</em>=2 for N even and <em>m</em>=4 for N odd. The <em>y</em>-star is shown as red dotted lines, and has a constant value in the index for a given rosette number N. These are not stellate rosettes, so no <em>x</em>-values are shown.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81cf-b3d6-e7cdf74217aa" class="">Theoretically there will be additional rosette shapes interpolated between those shown in fig. 15 for each N value, as well as further shapes above and below the ones drawn in each column, but those illustrated are purposely chosen from continuous sequences of <em>integral</em> values. Integral values are convenient if we wish to compile tidy tables of values, but there is no compelling reason to confine our interest to integers. The fact that the indices of odd and even rosette numbers are based on different fundamental angles - 180°/ 2N or 180°/N - is reflected</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-812e-ad4b-fbc94c2fcfb1" class="">in the sequences for increasing N in fig. 15, seen particularly in the divergent-sided examples in the top row, which clearly do not form a smooth series. In fact, when applying the star indices to actual Islamic rosette patterns, there are many cases where we have to accept non-integral values, or else artificially use a higher multiplier <em>m</em>, merely in order to retain integer values. It does not necessarily follow that if one rosette in a pattern has integral indices, all other rosettes in the pattern must also have integral indices.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8102-842c-cceb77a40620" class=""><strong>6. Using the New Notation and Method to Draw Geometric Rosettes</strong>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811d-bbf1-f91c8f2a47aa" class="">The present authors have found the new methods helpful primarily for drawing rosettes and patterns on a computer, using vector graphics software, but clearly different programs will benefit from different aspects of the new approach. This approach is less suitable to manual drawing, which has its own special requirements, and is in many ways a much simpler means of constructing Islamic geometric patterns. First, fig. 16 and the following text shows an easy way of drawing a &quot;standard&quot; geometric rosette by hand.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81ce-b7f9-f2e465f2f2d7" class="image"><a href="Rosette_analysis/image27.png"><img style="width:700px" src="Rosette_analysis/image27.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8191-8fab-cb01780da35f" class="">Fig. 16. Showing the first stage of the construction of a &quot;standard&quot; rosette centred at A. With peripheral circles at B, C and radius BE = CE = CF. The shoulder point G lies on the bisector CD of angle ECF, and its position determines the size of angles CEG = CFG. Points E, F are fixed, but G is free to slide along the bisector. The inner points of the rosette are determined by continuing line GF, which then intersects successive radii at H and K.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f5-9202-e5be964a12dd" class=""><strong>6a. Instructions for a manual construction</strong>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-810e-a358-f4aae8cabf1b" class="">Choose a location for the centre of the rosette - point A on fig. 16. Decide how many petals the rosette is to have, say N. Draw a circle from A, e.g. the outermost circle in fig. 16, and mark out 2*N radii round A, at constant angular divisions of 180°/N. Where two of the radii intersect the outer circle mark points B and C. Draw a line from B to C, and mark the midpoint E of BC. Draw a circle through E and mark repetitions of E on every other radius all round the circumference. Draw circles on either B or C, or both, with radius BE = CE, which then determines a point F on radii AB or AC. Draw a circle from A through F, and mark repetitions of F on alternate radii round the circumference. Points E and F and their repetitions are the <em>fixed points</em>, and their positions are constant whatever proportions the rosette will have. On fig. 16 these points are shown as black dots.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81b6-80af-fb0ef3530c99" class="">The position of point G, the &quot;shoulder point&quot; of the rosette petal, determines the shape of the whole rosette, and there are different methods of locating it. We must ensure that angles CEG and CFG are equal. Points E and F are points of the peripheral star with centre C, and ideally the vertex angles of the peripheral stars should be equal, as are repeated angles in the body of the rosette, in order to achieve the maximum symmetry. Equality of angles CEG and CFG automatically ensures that G, as the intersection of lines EG and FG, will lie on the bisector CD of angle ECF. Other than that restriction, point G can be placed anywhere along the bisector, between a point where a line EF would cross it, and point C. Point D can also be located by drawing a perpendicular to radius AC through F.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8109-9eae-c3b5cfeeb6b8" class="">We next extend line GF, to intersect successive radii at points H and K. Draw circles from A though H and K, and mark repetitions of H and K on alternate radii. The slope of line EG can be repeated without having to measure its precise angle by extending EG to a point P. Draw a circle through P and mark repetitions of P round the circumference. Joining repetitions of E and P will then accurately repeat the angle CEG at every vertex E of the rosette. Marked points may then be joined up round the whole construction, using segments EG, GFHK as guides, to complete the rosette, including not only rotations of these segments but also of their mirror images.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8184-b6e8-fd2567c8c789" class="">The resulting type of rosette - divergent, parallel or convergent - can be decided simply by altering the angle of line GFHK, rotating it through the fixed point F, and the parallel variety is drawn by ensuring that GFHK is parallel to radius AE. Rotation of GFHK of course means that the circles through H and K will expand or shrink, but the circles through the fixed points E and F will remain constant. Note that, given the size of any one particular angle, for example, angle CEG, all other angles in a standard rosette are completely determined.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e1-8e14-d3ea75532188" class=""><strong>6b. Construction by means of vector graphics</strong>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e4-85f9-f40b4a1d5530" class="">6b.1 : <strong>Method A, with integral indices </strong><em><strong>x</strong></em><strong>, </strong><em><strong>w</strong></em><strong>, </strong><em><strong>y</strong></em><strong> and </strong><em><strong>z</strong></em>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8139-9246-f87d2d5828d9" class="">As with the manual method of construction, the first aim is to determine the sizes of the circumcircles of the constituent stars of a rosette. First, for N even we draw 2N radii round the centre of the rosette, and an initial outer circle intersecting all radii. Fig. 17 illustrates the example of the parallel-sided 8-rosette. Select a point on the outer circle where a radius crosses it, and join it with another point on the same circle four angular divisions away - in this case, clockwise. Draw a second circle through the intersection of this first line with the next radius.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8101-a3b5-f8c05916602b" class="">This line gives the slope 4 of the stellation star <em>x</em>, and the second circle is the circumcircle of the fixed star <em>y</em>, which has a slope of 5 in all standard 8-rosettes. Draw a line with slope 5 starting from the point labelled with &quot;5, 2&quot; in fig. 17A, which gives the required slope of the <em>y</em>-star. Proceed in a similar way, from the second radial intersection along the 5-5 line, and draw a line with slope 6. In order to complete the final rosette, each line must be drawn in both clockwise and anti-clockwise directions. Fig. 17B shows all stars completed, but the outer segments of only one petal have been drawn. In a parallel-sided rosette the <em>w</em>-star becomes an N-gon.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8156-81b3-f92d44ae2c58" class="image"><a href="Rosette_analysis/image28.png"><img style="width:700px" src="Rosette_analysis/image28.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8108-924d-ed2e02f10711" class="">Fig. 17. Finding circumcircles of the constituent stars <em>x</em>, <em>w</em>, <em>y</em> and <em>z</em> of an N-rosette, by joining points round their circumferences. N even. Radii are at 180°/N.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-811a-a187-da0e4a8f624a" class="">It is important to note that the &quot;slope&quot; of an index line is measured by the angle it makes with the radius which passes through its initial point. Thus, for the lines shown in fig. 17 these angles are 4-4 : <em>x</em> = 45°, 2-2 : <em>w</em> = 67.5°, 5-5 : <em>y</em> = 33.75° and 6-6 : <em>z</em> = 22.5°. The vertex angles of the respective stars are twice these values. Note that sides of the <em>w</em>-star are collinear with those of the <em>x</em>-star, and similarly the sides of the <em>z1</em> and <em>z2</em> stars are collinear, but the <em>y</em>-star is distinct, and separates the outer <em>x</em>- and <em>w</em>-stars from the inner <em>z1</em>- and <em>z2</em>-stars.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-81d9-888d-c9b9a436f015" class="image"><a href="Rosette_analysis/image29.png"><img style="width:700px" src="Rosette_analysis/image29.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8114-8d13-cb059b254819" class="">Fig. 18. Finding circumcircles of the constituent stars <em>x</em>, <em>w</em>, <em>y</em> and <em>z</em> for N odd. The construction is here based on angular divisions of 180°/2N.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c7-b974-e048ba748c89" class="">The two constructions shown in figs. 17 (for a parallel 8-rosette) and 18 (for a parallel 7-rosette) rely on integral indices <em>x</em>, <em>w</em>, <em>y</em> and <em>z.</em> Depending on the graphics software one is using, it may or may not be necessary to know the vertex angles of individual stars, but these are easily calculated from the indices. If we use S for any of the star indices <em>x</em>, <em>w</em>, <em>y</em> or <em>z</em>, then for an</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8110-a38a-eaf835e25344" class="">S-star the vertex angle is 180°(1 - S/N) for N even, or 180°(1 - S/2N) for N odd.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81cc-81c5-dd61f0d7fb18" class="">6b.2 : <strong>Method B, with non-integral indices </strong><em><strong>x</strong></em><strong>, </strong><em><strong>w</strong></em><strong>, </strong><em><strong>y</strong></em><strong> and </strong><em><strong>z</strong></em>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-814a-a04c-e95494b0de4d" class="">Let us consider the pattern shown in fig. 19, which has a combination of parallel-sided 9-rosettes, and convergent-sided 12-rosettes. This has been constructed strictly according to our &quot;standard&quot; method, which, given an initial choice of parallel 9-rosettes, here forces convergent 12-rosettes. A version of this p6m pattern occurs in the Alhambra, at Granada in Spain, as mosaic dados in the Mirador de la Lindaraja, but, in the normal western Islamic tradition, the 12s also have parallel sides to match the petal width of the 9-rosettes. Otherwise, the Alhambra pattern seems to have been constructed with virtually identical proportions to those in fig. 19.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8120-9c61-df8109c2f084" class="image"><a href="Rosette_analysis/image30.png"><img style="width:700px" src="Rosette_analysis/image30.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d4-87be-ff893e25e294" class="">Fig. 19. A p6m pattern of 12-rosettes on hexads (blue circles), and 9-rosettes on triads (red circles). Diads are marked by red dots. The 9-rosettes are parallel-sided, and the pairs of interstitial petals flanking the diads are congruent to the petals of the 9-rosettes. The 9-rosettes have integer star indices, but the 12-rosette indices are not integers, apart from the <em>y</em>-star.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8138-90f7-e87718aedd1f" class="">The 9-rosettes in fig. 19 have the index 9*4(4:11 - 14, 12)P, that is, the <em>w</em>-star is in fact an enneagon, since the vertex angle of the 9-rosette is 180°(1 - <em>w</em>/9*2) = 140°, from which we can calculate <em>w</em> as 9*2(1 - 140°/180°) = 4. The vertex angles of the constituent stars of the convergent 12-rosette are <em>w</em> = 140°, <em>y</em> = 35°, <em>z1</em> = 40°, <em>z2</em> = 70°. From which we can calculate the index for the 12-rosette as 12*2(8/3 : 7 - 28/3, 22/3)C. However, if we start with a <em>parallel-sided</em> 12-rosette and carry out a standard construction, this forces a <em>divergent-sided</em> 9-rosette, and both indices are integral: 9*4(3 : 11 - 15, 11)D, 12*2(2 : 7 - 10, 8)P. In this latter version the pattern occurs in Cairo, on the balustrade of the wooden minbar of the Sultan al-Mu&#x27;ayyad mosque - see Wade (5, image egy_1216).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-815f-9b00-cde852b814eb" class="">Thus, a standard construction involving two kinds of rosettes does not always necessarily result in star indices with entirely integral numbers, so the methods illustrated in figs. 17 and 18</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81f2-80d4-d72b09dae22e" class="">cannot be used, unless we increase the value of the multiplier <em>m</em>. In the case of the pattern in fig. 19 the values for the 12-rosette could be increased by three times in order to retain integers, to give 12*6(8:21 - 28, 22)C. Angular divisions for such a construction would be at 5°, and counting out the correct number of divisions for the <em>y</em>-, <em>z1</em>- and <em>z2</em>-stars might be error prone. We would therefore suggest a different approach, based on calculation of the vertex angles of each of the constituent stars in the rosette.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-813a-809f-c7876fa0bf78" class="">If a pattern contains a correctly constructed parallel-sided rosette, such as the 9-rosettes in fig. 19, then all its angles are easily determined, based on a fundamental angle <em>a</em> = 180°/9.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-817d-b2e6-fe9bc02336fd" class="image"><a href="Rosette_analysis/image31.png"><img style="width:700px" src="Rosette_analysis/image31.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8125-b3b9-fa1e6463cdac" class="">Fig. 20. Showing generalized expressions for the angles in a standard parallel- sided <em>n</em>-rosette. Angles expressed in terms of <em>n,</em> as fractions of 180°.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81fc-a894-f0788b502c74" class="">For a standard, parallel-sided <em>n</em>-rosette the fundamental angle <em>a</em> = 1/<em>n</em> as a fraction of 180°. Fig. 20 gives expressions for the major angles within the rosette, in terms of the number of petals <em>n</em> in the rosette. This demonstrates that the standard parallel rosette can be completely defined by two parameters - <em>n</em> and one angle, from which all other angles can be determined. Note that the vertex angle of the <em>y</em>-star, V<em>y</em> = 180°*(<em>n</em>-2)/2<em>n</em>; this can be read from the parallel case, but as we have seen this constant angle applies to all standard rosettes with the same <em>n</em>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8117-892d-ce6fc32091e6" class="">In a correctly constructed pattern, such as that in fig. 19, if the two kinds of rosettes share a common vertex, then the same vertex angle is also shared between both rosettes, so we can say that the vertex angle of the 12-rosettes in fig. 19 is also twice 180°*(<em>n</em>-2)/2<em>n</em> = 140°. This is shown in fig. 21, with the values of marked angles. It is important to realize that in a &quot;standard&quot; construction, if two different rosettes share a common vertex - as in the pattern of fig. 19 - then any angle in either one of the two rosettes determines all angles in both of them.</p></div><div style="display:contents" dir="ltr"><figure id="2daac165-e88d-8156-8d88-c4c0760d21fb" class="image"><a href="Rosette_analysis/image32.png"><img style="width:700px" src="Rosette_analysis/image32.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d8-a63a-ede0be5de1b2" class="">Fig. 21. The convergent-sided 12-rosette from fig. 19, its internal angles determined by contact with the parallel-sided 9-rosette, shown in fig. 20.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81ef-9bf2-cff4e7467062" class="">The inner, or re-entrant angle of the <em>y</em>-star can be obtained either by drawing the y-star (remember that the <em>y</em>-star will always have an integer for its index), or by drawing the peripheral circle, as shown in figs. 20, 21. The 9-rosette in fig. 19 may of course be drawn by means of its index 9*4(4:11 - 14, 12)P, as in figs. 17, 18, but the 12-rosette in the same pattern is best constructed on the basis of its calculated angles, as shown in fig. 21. Various methods are available if we are using vector graphic software. We could accurately draw the contents of the basic ABC isosceles triangle (see fig. 9), then repeat this <em>n</em> times round the centre A to complete the rosette, which is how fig. 21 was produced. Alternatively we could construct the rosette one star at a time, i.e. successively, the <em>w</em>-star, <em>y</em>-star, <em>z</em>1- and <em>z</em>2-stars. This can be achieved either by rotation <em>n</em> times of one point of each star, or there may be a function to draw a whole star on the basis of a &quot;spoke ratio&quot;, that is, the ratio between the radius of its re-entrant angle and that of its vertex.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81e6-939a-ff2e66c75322" class=""><strong>7. References</strong>.</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81c8-83f2-c23ba73c57c4" class="">1. G. A. Pugachenkova, &#x27;Mavzolei Arab-Ata&#x27;. <em>Iskusstvo Zodchikh Uzbekistana</em> II (Tashkent, 1963).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8149-b272-e85b2ce16b09" class="">2. A. J. Lee, &#x27;Islamic Star Patterns&#x27;. <em>Muqarnas</em> 4 (E. J. Brill, Leiden, 1987).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-810e-925f-ec0ccf0135a7" class="">3. E. H. Hankin, &#x27;On some discoveries of the methods of design employed in Mohammadan Art&#x27;. <em>Journal of the Society of Arts</em> 53, pp. 461-477 (London, 1905).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-81d9-aa5c-df3d580d163c" class="">4. E. H. Hankin, &#x27;The drawing of geometric patterns in Saracenic art&#x27;. <em>Memoirs of the Archaeological Society of India</em> 15 (Calcutta, 1925).</p></div><div style="display:contents" dir="auto"><p id="2daac165-e88d-8164-8573-ed74d1556eb9" class="">5. David Wade,</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
